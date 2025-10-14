@@ -1,36 +1,10 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Liste des Véhicules";
+    ViewData["Title"] = "VehicleLocation";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Véhicules disponibles</h1>
-
-    @if (Model.Vehicules.Any())
-    {
-        <table class="table table-striped mt-4">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Modèle</th>
-                    <th>Places</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var vehicule in Model.Vehicules)
-                {
-                    <tr>
-                        <td>@vehicule.Id</td>
-                        <td>@vehicule.Modele</td>
-                        <td>@vehicule.Place</td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    }
-    else
-    {
-        <p class="mt-4">Aucun véhicule trouvé ou l'API n'est pas accessible.</p>
-    }
+    <h1>Rent a vehicle now !</h1>
+    <button class="btn btn-primary" onclick="location.href='/list'">Rentable vehicles list</button>
 </div>

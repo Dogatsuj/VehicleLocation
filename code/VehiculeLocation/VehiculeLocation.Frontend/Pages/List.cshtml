@@ -1,0 +1,36 @@
+﻿@page
+@model ListModel
+@{
+    ViewData["Title"] = "Vehicles list";
+}
+
+<div class="text-center">
+    <h1 class="display-4">All rentable vehicles</h1>
+
+    @if (Model.Vehicules.Any())
+    {
+        <table class="table table-striped mt-4">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Modèle</th>
+                    <th>Places</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var vehicule in Model.Vehicules)
+                {
+                    <tr>
+                        <td>@vehicule.Id</td>
+                        <td>@vehicule.Modele</td>
+                        <td>@vehicule.Place</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p class="mt-4">No vehicle found.</p>
+    }
+</div>

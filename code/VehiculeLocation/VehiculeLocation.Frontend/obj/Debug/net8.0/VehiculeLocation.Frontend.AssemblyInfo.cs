@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("VehiculeLocation.Frontend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c0c13e9f182cd0827ed034deec477eafde02eada")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1d5c5140138b3f06158d79504c880d83bcaf6c27")]
 [assembly: System.Reflection.AssemblyProductAttribute("VehiculeLocation.Frontend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("VehiculeLocation.Frontend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

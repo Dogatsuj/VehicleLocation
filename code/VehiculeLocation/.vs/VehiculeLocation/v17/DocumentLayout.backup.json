@@ -1,62 +1,46 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\i2300645\\Documents\\csharp\\VehiculeLocation\\code\\VehiculeLocation\\",
+  "WorkspaceRootPath": "C:\\Users\\i2300228\\Documents\\VehiculeLocation\\code\\VehiculeLocation\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0AFB612F-322F-4D6E-A7BB-EEF053A3A5F9}|VehiculeLocation.Frontend\\VehiculeLocation.Frontend.csproj|c:\\users\\i2300645\\documents\\csharp\\vehiculelocation\\code\\vehiculelocation\\vehiculelocation.frontend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0AFB612F-322F-4D6E-A7BB-EEF053A3A5F9}|VehiculeLocation.Frontend\\VehiculeLocation.Frontend.csproj|solutionrelative:vehiculelocation.frontend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0AFB612F-322F-4D6E-A7BB-EEF053A3A5F9}|VehiculeLocation.Frontend\\VehiculeLocation.Frontend.csproj|c:\\users\\i2300228\\documents\\vehiculelocation\\code\\vehiculelocation\\vehiculelocation.frontend\\pages\\list.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0AFB612F-322F-4D6E-A7BB-EEF053A3A5F9}|VehiculeLocation.Frontend\\VehiculeLocation.Frontend.csproj|solutionrelative:vehiculelocation.frontend\\pages\\list.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0AFB612F-322F-4D6E-A7BB-EEF053A3A5F9}|VehiculeLocation.Frontend\\VehiculeLocation.Frontend.csproj|c:\\users\\i2300645\\documents\\csharp\\vehiculelocation\\code\\vehiculelocation\\vehiculelocation.frontend\\pages\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0AFB612F-322F-4D6E-A7BB-EEF053A3A5F9}|VehiculeLocation.Frontend\\VehiculeLocation.Frontend.csproj|solutionrelative:vehiculelocation.frontend\\pages\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0AFB612F-322F-4D6E-A7BB-EEF053A3A5F9}|VehiculeLocation.Frontend\\VehiculeLocation.Frontend.csproj|c:\\users\\i2300228\\documents\\vehiculelocation\\code\\vehiculelocation\\vehiculelocation.frontend\\pages\\list.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0AFB612F-322F-4D6E-A7BB-EEF053A3A5F9}|VehiculeLocation.Frontend\\VehiculeLocation.Frontend.csproj|solutionrelative:vehiculelocation.frontend\\pages\\list.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0AFB612F-322F-4D6E-A7BB-EEF053A3A5F9}|VehiculeLocation.Frontend\\VehiculeLocation.Frontend.csproj|c:\\users\\i2300645\\documents\\csharp\\vehiculelocation\\code\\vehiculelocation\\vehiculelocation.frontend\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{0AFB612F-322F-4D6E-A7BB-EEF053A3A5F9}|VehiculeLocation.Frontend\\VehiculeLocation.Frontend.csproj|c:\\users\\i2300228\\documents\\vehiculelocation\\code\\vehiculelocation\\vehiculelocation.frontend\\pages\\add.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0AFB612F-322F-4D6E-A7BB-EEF053A3A5F9}|VehiculeLocation.Frontend\\VehiculeLocation.Frontend.csproj|solutionrelative:vehiculelocation.frontend\\pages\\add.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AFB612F-322F-4D6E-A7BB-EEF053A3A5F9}|VehiculeLocation.Frontend\\VehiculeLocation.Frontend.csproj|c:\\users\\i2300228\\documents\\vehiculelocation\\code\\vehiculelocation\\vehiculelocation.frontend\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{0AFB612F-322F-4D6E-A7BB-EEF053A3A5F9}|VehiculeLocation.Frontend\\VehiculeLocation.Frontend.csproj|solutionrelative:vehiculelocation.frontend\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9E11CAD5-5F5D-4816-AD08-8594057D3AC9}|VehiculeLocation.Backend\\VehiculeLocation.Backend.csproj|c:\\users\\i2300645\\documents\\csharp\\vehiculelocation\\code\\vehiculelocation\\vehiculelocation.backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9E11CAD5-5F5D-4816-AD08-8594057D3AC9}|VehiculeLocation.Backend\\VehiculeLocation.Backend.csproj|solutionrelative:vehiculelocation.backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0AFB612F-322F-4D6E-A7BB-EEF053A3A5F9}|VehiculeLocation.Frontend\\VehiculeLocation.Frontend.csproj|c:\\users\\i2300228\\documents\\vehiculelocation\\code\\vehiculelocation\\vehiculelocation.frontend\\pages\\add.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0AFB612F-322F-4D6E-A7BB-EEF053A3A5F9}|VehiculeLocation.Frontend\\VehiculeLocation.Frontend.csproj|solutionrelative:vehiculelocation.frontend\\pages\\add.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0AFB612F-322F-4D6E-A7BB-EEF053A3A5F9}|VehiculeLocation.Frontend\\VehiculeLocation.Frontend.csproj|c:\\users\\i2300645\\documents\\csharp\\vehiculelocation\\code\\vehiculelocation\\vehiculelocation.frontend\\models\\vehicule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0AFB612F-322F-4D6E-A7BB-EEF053A3A5F9}|VehiculeLocation.Frontend\\VehiculeLocation.Frontend.csproj|solutionrelative:vehiculelocation.frontend\\models\\vehicule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0AFB612F-322F-4D6E-A7BB-EEF053A3A5F9}|VehiculeLocation.Frontend\\VehiculeLocation.Frontend.csproj|c:\\users\\i2300228\\documents\\vehiculelocation\\code\\vehiculelocation\\vehiculelocation.frontend\\pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0AFB612F-322F-4D6E-A7BB-EEF053A3A5F9}|VehiculeLocation.Frontend\\VehiculeLocation.Frontend.csproj|solutionrelative:vehiculelocation.frontend\\pages\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9E11CAD5-5F5D-4816-AD08-8594057D3AC9}|VehiculeLocation.Backend\\VehiculeLocation.Backend.csproj|c:\\users\\i2300645\\documents\\csharp\\vehiculelocation\\code\\vehiculelocation\\vehiculelocation.backend\\controllers\\vehiculecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9E11CAD5-5F5D-4816-AD08-8594057D3AC9}|VehiculeLocation.Backend\\VehiculeLocation.Backend.csproj|solutionrelative:vehiculelocation.backend\\controllers\\vehiculecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0AFB612F-322F-4D6E-A7BB-EEF053A3A5F9}|VehiculeLocation.Frontend\\VehiculeLocation.Frontend.csproj|c:\\users\\i2300228\\documents\\vehiculelocation\\code\\vehiculelocation\\vehiculelocation.frontend\\pages\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0AFB612F-322F-4D6E-A7BB-EEF053A3A5F9}|VehiculeLocation.Frontend\\VehiculeLocation.Frontend.csproj|solutionrelative:vehiculelocation.frontend\\pages\\index.cshtml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9E11CAD5-5F5D-4816-AD08-8594057D3AC9}|VehiculeLocation.Backend\\VehiculeLocation.Backend.csproj|c:\\users\\i2300645\\documents\\csharp\\vehiculelocation\\code\\vehiculelocation\\vehiculelocation.backend\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9E11CAD5-5F5D-4816-AD08-8594057D3AC9}|VehiculeLocation.Backend\\VehiculeLocation.Backend.csproj|solutionrelative:vehiculelocation.backend\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0AFB612F-322F-4D6E-A7BB-EEF053A3A5F9}|VehiculeLocation.Frontend\\VehiculeLocation.Frontend.csproj|c:\\users\\i2300228\\documents\\vehiculelocation\\code\\vehiculelocation\\vehiculelocation.frontend\\vehiculelocation.frontend.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{0AFB612F-322F-4D6E-A7BB-EEF053A3A5F9}|VehiculeLocation.Frontend\\VehiculeLocation.Frontend.csproj|solutionrelative:vehiculelocation.frontend\\vehiculelocation.frontend.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9E11CAD5-5F5D-4816-AD08-8594057D3AC9}|VehiculeLocation.Backend\\VehiculeLocation.Backend.csproj|c:\\users\\i2300645\\documents\\csharp\\vehiculelocation\\code\\vehiculelocation\\vehiculelocation.backend\\migrations\\20251014094255_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9E11CAD5-5F5D-4816-AD08-8594057D3AC9}|VehiculeLocation.Backend\\VehiculeLocation.Backend.csproj|solutionrelative:vehiculelocation.backend\\migrations\\20251014094255_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9E11CAD5-5F5D-4816-AD08-8594057D3AC9}|VehiculeLocation.Backend\\VehiculeLocation.Backend.csproj|c:\\users\\i2300645\\documents\\csharp\\vehiculelocation\\code\\vehiculelocation\\vehiculelocation.backend\\migrations\\20251014095426_seedvehicules.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9E11CAD5-5F5D-4816-AD08-8594057D3AC9}|VehiculeLocation.Backend\\VehiculeLocation.Backend.csproj|solutionrelative:vehiculelocation.backend\\migrations\\20251014095426_seedvehicules.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9E11CAD5-5F5D-4816-AD08-8594057D3AC9}|VehiculeLocation.Backend\\VehiculeLocation.Backend.csproj|c:\\users\\i2300645\\documents\\csharp\\vehiculelocation\\code\\vehiculelocation\\vehiculelocation.backend\\models\\vehicule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9E11CAD5-5F5D-4816-AD08-8594057D3AC9}|VehiculeLocation.Backend\\VehiculeLocation.Backend.csproj|solutionrelative:vehiculelocation.backend\\models\\vehicule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9E11CAD5-5F5D-4816-AD08-8594057D3AC9}|VehiculeLocation.Backend\\VehiculeLocation.Backend.csproj|c:\\users\\i2300645\\documents\\csharp\\vehiculelocation\\code\\vehiculelocation\\vehiculelocation.backend\\migrations\\appdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9E11CAD5-5F5D-4816-AD08-8594057D3AC9}|VehiculeLocation.Backend\\VehiculeLocation.Backend.csproj|solutionrelative:vehiculelocation.backend\\migrations\\appdbcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9E11CAD5-5F5D-4816-AD08-8594057D3AC9}|VehiculeLocation.Backend\\VehiculeLocation.Backend.csproj|c:\\users\\i2300645\\documents\\csharp\\vehiculelocation\\code\\vehiculelocation\\vehiculelocation.backend\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{9E11CAD5-5F5D-4816-AD08-8594057D3AC9}|VehiculeLocation.Backend\\VehiculeLocation.Backend.csproj|solutionrelative:vehiculelocation.backend\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9E11CAD5-5F5D-4816-AD08-8594057D3AC9}|VehiculeLocation.Backend\\VehiculeLocation.Backend.csproj|c:\\users\\i2300645\\documents\\csharp\\vehiculelocation\\code\\vehiculelocation\\vehiculelocation.backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{9E11CAD5-5F5D-4816-AD08-8594057D3AC9}|VehiculeLocation.Backend\\VehiculeLocation.Backend.csproj|solutionrelative:vehiculelocation.backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9E11CAD5-5F5D-4816-AD08-8594057D3AC9}|VehiculeLocation.Backend\\VehiculeLocation.Backend.csproj|c:\\users\\i2300645\\documents\\csharp\\vehiculelocation\\code\\vehiculelocation\\vehiculelocation.backend\\vehiculelocation.backend.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "AbsoluteMoniker": "D:0:0:{9E11CAD5-5F5D-4816-AD08-8594057D3AC9}|VehiculeLocation.Backend\\VehiculeLocation.Backend.csproj|c:\\users\\i2300228\\documents\\vehiculelocation\\code\\vehiculelocation\\vehiculelocation.backend\\vehiculelocation.backend.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{9E11CAD5-5F5D-4816-AD08-8594057D3AC9}|VehiculeLocation.Backend\\VehiculeLocation.Backend.csproj|solutionrelative:vehiculelocation.backend\\vehiculelocation.backend.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0AFB612F-322F-4D6E-A7BB-EEF053A3A5F9}|VehiculeLocation.Frontend\\VehiculeLocation.Frontend.csproj|c:\\users\\i2300228\\documents\\vehiculelocation\\code\\vehiculelocation\\vehiculelocation.frontend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0AFB612F-322F-4D6E-A7BB-EEF053A3A5F9}|VehiculeLocation.Frontend\\VehiculeLocation.Frontend.csproj|solutionrelative:vehiculelocation.frontend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -66,187 +50,137 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Index.cshtml.cs",
-              "DocumentMoniker": "C:\\Users\\i2300645\\Documents\\csharp\\VehiculeLocation\\code\\VehiculeLocation\\VehiculeLocation.Frontend\\Pages\\Index.cshtml.cs",
-              "RelativeDocumentMoniker": "VehiculeLocation.Frontend\\Pages\\Index.cshtml.cs",
-              "ToolTip": "C:\\Users\\i2300645\\Documents\\csharp\\VehiculeLocation\\code\\VehiculeLocation\\VehiculeLocation.Frontend\\Pages\\Index.cshtml.cs",
-              "RelativeToolTip": "VehiculeLocation.Frontend\\Pages\\Index.cshtml.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAQwB0AAAAvAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "Add.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\i2300228\\Documents\\VehiculeLocation\\code\\VehiculeLocation\\VehiculeLocation.Frontend\\Pages\\Add.cshtml.cs",
+              "RelativeDocumentMoniker": "VehiculeLocation.Frontend\\Pages\\Add.cshtml.cs",
+              "ToolTip": "C:\\Users\\i2300228\\Documents\\VehiculeLocation\\code\\VehiculeLocation\\VehiculeLocation.Frontend\\Pages\\Add.cshtml.cs",
+              "RelativeToolTip": "VehiculeLocation.Frontend\\Pages\\Add.cshtml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-14T09:59:01.2Z",
+              "WhenOpened": "2025-10-14T12:22:29.276Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\i2300645\\Documents\\csharp\\VehiculeLocation\\code\\VehiculeLocation\\VehiculeLocation.Frontend\\Pages\\Index.cshtml",
-              "RelativeDocumentMoniker": "VehiculeLocation.Frontend\\Pages\\Index.cshtml",
-              "ToolTip": "C:\\Users\\i2300645\\Documents\\csharp\\VehiculeLocation\\code\\VehiculeLocation\\VehiculeLocation.Frontend\\Pages\\Index.cshtml",
-              "RelativeToolTip": "VehiculeLocation.Frontend\\Pages\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAABCAAAAAAAAAA==",
+              "Title": "Add.cshtml",
+              "DocumentMoniker": "C:\\Users\\i2300228\\Documents\\VehiculeLocation\\code\\VehiculeLocation\\VehiculeLocation.Frontend\\Pages\\Add.cshtml",
+              "RelativeDocumentMoniker": "VehiculeLocation.Frontend\\Pages\\Add.cshtml",
+              "ToolTip": "C:\\Users\\i2300228\\Documents\\VehiculeLocation\\code\\VehiculeLocation\\VehiculeLocation.Frontend\\Pages\\Add.cshtml",
+              "RelativeToolTip": "VehiculeLocation.Frontend\\Pages\\Add.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-14T09:58:33.472Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Vehicule.cs",
-              "DocumentMoniker": "C:\\Users\\i2300645\\Documents\\csharp\\VehiculeLocation\\code\\VehiculeLocation\\VehiculeLocation.Frontend\\Models\\Vehicule.cs",
-              "RelativeDocumentMoniker": "VehiculeLocation.Frontend\\Models\\Vehicule.cs",
-              "ToolTip": "C:\\Users\\i2300645\\Documents\\csharp\\VehiculeLocation\\code\\VehiculeLocation\\VehiculeLocation.Frontend\\Models\\Vehicule.cs",
-              "RelativeToolTip": "VehiculeLocation.Frontend\\Models\\Vehicule.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-14T09:57:45.289Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "VehiculeController.cs",
-              "DocumentMoniker": "C:\\Users\\i2300645\\Documents\\csharp\\VehiculeLocation\\code\\VehiculeLocation\\VehiculeLocation.Backend\\Controllers\\VehiculeController.cs",
-              "RelativeDocumentMoniker": "VehiculeLocation.Backend\\Controllers\\VehiculeController.cs",
-              "ToolTip": "C:\\Users\\i2300645\\Documents\\csharp\\VehiculeLocation\\code\\VehiculeLocation\\VehiculeLocation.Backend\\Controllers\\VehiculeController.cs",
-              "RelativeToolTip": "VehiculeLocation.Backend\\Controllers\\VehiculeController.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABQAAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-14T09:55:57.195Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "20251014094255_InitialCreate.cs",
-              "DocumentMoniker": "C:\\Users\\i2300645\\Documents\\csharp\\VehiculeLocation\\code\\VehiculeLocation\\VehiculeLocation.Backend\\Migrations\\20251014094255_InitialCreate.cs",
-              "RelativeDocumentMoniker": "VehiculeLocation.Backend\\Migrations\\20251014094255_InitialCreate.cs",
-              "ToolTip": "C:\\Users\\i2300645\\Documents\\csharp\\VehiculeLocation\\code\\VehiculeLocation\\VehiculeLocation.Backend\\Migrations\\20251014094255_InitialCreate.cs",
-              "RelativeToolTip": "VehiculeLocation.Backend\\Migrations\\20251014094255_InitialCreate.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-14T09:53:42.964Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "AppDbContextModelSnapshot.cs",
-              "DocumentMoniker": "C:\\Users\\i2300645\\Documents\\csharp\\VehiculeLocation\\code\\VehiculeLocation\\VehiculeLocation.Backend\\Migrations\\AppDbContextModelSnapshot.cs",
-              "RelativeDocumentMoniker": "VehiculeLocation.Backend\\Migrations\\AppDbContextModelSnapshot.cs",
-              "ToolTip": "C:\\Users\\i2300645\\Documents\\csharp\\VehiculeLocation\\code\\VehiculeLocation\\VehiculeLocation.Backend\\Migrations\\AppDbContextModelSnapshot.cs",
-              "RelativeToolTip": "VehiculeLocation.Backend\\Migrations\\AppDbContextModelSnapshot.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-14T09:53:40.621Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "appsettings.Development.json",
-              "DocumentMoniker": "C:\\Users\\i2300645\\Documents\\csharp\\VehiculeLocation\\code\\VehiculeLocation\\VehiculeLocation.Backend\\appsettings.Development.json",
-              "RelativeDocumentMoniker": "VehiculeLocation.Backend\\appsettings.Development.json",
-              "ToolTip": "C:\\Users\\i2300645\\Documents\\csharp\\VehiculeLocation\\code\\VehiculeLocation\\VehiculeLocation.Backend\\appsettings.Development.json",
-              "RelativeToolTip": "VehiculeLocation.Backend\\appsettings.Development.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-10-14T09:32:48.159Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\i2300645\\Documents\\csharp\\VehiculeLocation\\code\\VehiculeLocation\\VehiculeLocation.Backend\\Program.cs",
-              "RelativeDocumentMoniker": "VehiculeLocation.Backend\\Program.cs",
-              "ToolTip": "C:\\Users\\i2300645\\Documents\\csharp\\VehiculeLocation\\code\\VehiculeLocation\\VehiculeLocation.Backend\\Program.cs",
-              "RelativeToolTip": "VehiculeLocation.Backend\\Program.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAAAB8AAAADAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-14T08:18:29.246Z",
+              "WhenOpened": "2025-10-14T12:22:17.752Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\i2300645\\Documents\\csharp\\VehiculeLocation\\code\\VehiculeLocation\\VehiculeLocation.Frontend\\Program.cs",
-              "RelativeDocumentMoniker": "VehiculeLocation.Frontend\\Program.cs",
-              "ToolTip": "C:\\Users\\i2300645\\Documents\\csharp\\VehiculeLocation\\code\\VehiculeLocation\\VehiculeLocation.Frontend\\Program.cs",
-              "RelativeToolTip": "VehiculeLocation.Frontend\\Program.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAowBMAAAAmAAAAAAAAAA==",
+              "Title": "List.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\i2300228\\Documents\\VehiculeLocation\\code\\VehiculeLocation\\VehiculeLocation.Frontend\\Pages\\List.cshtml.cs",
+              "RelativeDocumentMoniker": "VehiculeLocation.Frontend\\Pages\\List.cshtml.cs",
+              "ToolTip": "C:\\Users\\i2300228\\Documents\\VehiculeLocation\\code\\VehiculeLocation\\VehiculeLocation.Frontend\\Pages\\List.cshtml.cs",
+              "RelativeToolTip": "VehiculeLocation.Frontend\\Pages\\List.cshtml.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA8AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-14T08:25:36.386Z",
+              "WhenOpened": "2025-10-14T12:09:11.276Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "List.cshtml",
+              "DocumentMoniker": "C:\\Users\\i2300228\\Documents\\VehiculeLocation\\code\\VehiculeLocation\\VehiculeLocation.Frontend\\Pages\\List.cshtml",
+              "RelativeDocumentMoniker": "VehiculeLocation.Frontend\\Pages\\List.cshtml",
+              "ToolTip": "C:\\Users\\i2300228\\Documents\\VehiculeLocation\\code\\VehiculeLocation\\VehiculeLocation.Frontend\\Pages\\List.cshtml",
+              "RelativeToolTip": "VehiculeLocation.Frontend\\Pages\\List.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-14T12:08:28.668Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\i2300228\\Documents\\VehiculeLocation\\code\\VehiculeLocation\\VehiculeLocation.Frontend\\Pages\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "VehiculeLocation.Frontend\\Pages\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\i2300228\\Documents\\VehiculeLocation\\code\\VehiculeLocation\\VehiculeLocation.Frontend\\Pages\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "VehiculeLocation.Frontend\\Pages\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAABnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-14T11:41:57.393Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "20251014095426_SeedVehicules.cs",
-              "DocumentMoniker": "C:\\Users\\i2300645\\Documents\\csharp\\VehiculeLocation\\code\\VehiculeLocation\\VehiculeLocation.Backend\\Migrations\\20251014095426_SeedVehicules.cs",
-              "RelativeDocumentMoniker": "VehiculeLocation.Backend\\Migrations\\20251014095426_SeedVehicules.cs",
-              "ToolTip": "C:\\Users\\i2300645\\Documents\\csharp\\VehiculeLocation\\code\\VehiculeLocation\\VehiculeLocation.Backend\\Migrations\\20251014095426_SeedVehicules.cs",
-              "RelativeToolTip": "VehiculeLocation.Backend\\Migrations\\20251014095426_SeedVehicules.cs",
+              "Title": "VehiculeLocation.Backend",
+              "DocumentMoniker": "C:\\Users\\i2300228\\Documents\\VehiculeLocation\\code\\VehiculeLocation\\VehiculeLocation.Backend\\VehiculeLocation.Backend.csproj",
+              "RelativeDocumentMoniker": "VehiculeLocation.Backend\\VehiculeLocation.Backend.csproj",
+              "ToolTip": "C:\\Users\\i2300228\\Documents\\VehiculeLocation\\code\\VehiculeLocation\\VehiculeLocation.Backend\\VehiculeLocation.Backend.csproj",
+              "RelativeToolTip": "VehiculeLocation.Backend\\VehiculeLocation.Backend.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-14T09:57:56.676Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\i2300645\\Documents\\csharp\\VehiculeLocation\\code\\VehiculeLocation\\VehiculeLocation.Backend\\appsettings.json",
-              "RelativeDocumentMoniker": "VehiculeLocation.Backend\\appsettings.json",
-              "ToolTip": "C:\\Users\\i2300645\\Documents\\csharp\\VehiculeLocation\\code\\VehiculeLocation\\VehiculeLocation.Backend\\appsettings.json",
-              "RelativeToolTip": "VehiculeLocation.Backend\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAADAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-10-14T09:32:25.744Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\i2300645\\Documents\\csharp\\VehiculeLocation\\code\\VehiculeLocation\\VehiculeLocation.Backend\\Data\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "VehiculeLocation.Backend\\Data\\AppDbContext.cs",
-              "ToolTip": "C:\\Users\\i2300645\\Documents\\csharp\\VehiculeLocation\\code\\VehiculeLocation\\VehiculeLocation.Backend\\Data\\AppDbContext.cs",
-              "RelativeToolTip": "VehiculeLocation.Backend\\Data\\AppDbContext.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAgwBkAAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-14T09:30:55.268Z",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-10-14T11:41:50.878Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "Vehicule.cs",
-              "DocumentMoniker": "C:\\Users\\i2300645\\Documents\\csharp\\VehiculeLocation\\code\\VehiculeLocation\\VehiculeLocation.Backend\\Models\\Vehicule.cs",
-              "RelativeDocumentMoniker": "VehiculeLocation.Backend\\Models\\Vehicule.cs",
-              "ToolTip": "C:\\Users\\i2300645\\Documents\\csharp\\VehiculeLocation\\code\\VehiculeLocation\\VehiculeLocation.Backend\\Models\\Vehicule.cs",
-              "RelativeToolTip": "VehiculeLocation.Backend\\Models\\Vehicule.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\i2300228\\Documents\\VehiculeLocation\\code\\VehiculeLocation\\VehiculeLocation.Frontend\\Program.cs",
+              "RelativeDocumentMoniker": "VehiculeLocation.Frontend\\Program.cs",
+              "ToolTip": "C:\\Users\\i2300228\\Documents\\VehiculeLocation\\code\\VehiculeLocation\\VehiculeLocation.Frontend\\Program.cs",
+              "RelativeToolTip": "VehiculeLocation.Frontend\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-14T09:28:13.986Z",
+              "WhenOpened": "2025-10-14T11:37:05.479Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "VehiculeLocation.Backend.csproj",
-              "DocumentMoniker": "C:\\Users\\i2300645\\Documents\\csharp\\VehiculeLocation\\code\\VehiculeLocation\\VehiculeLocation.Backend\\VehiculeLocation.Backend.csproj",
-              "RelativeDocumentMoniker": "VehiculeLocation.Backend\\VehiculeLocation.Backend.csproj",
-              "ToolTip": "C:\\Users\\i2300645\\Documents\\csharp\\VehiculeLocation\\code\\VehiculeLocation\\VehiculeLocation.Backend\\VehiculeLocation.Backend.csproj",
-              "RelativeToolTip": "VehiculeLocation.Backend\\VehiculeLocation.Backend.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "Index.cshtml.cs",
+              "DocumentMoniker": "C:\\Users\\i2300228\\Documents\\VehiculeLocation\\code\\VehiculeLocation\\VehiculeLocation.Frontend\\Pages\\Index.cshtml.cs",
+              "RelativeDocumentMoniker": "VehiculeLocation.Frontend\\Pages\\Index.cshtml.cs",
+              "ToolTip": "C:\\Users\\i2300228\\Documents\\VehiculeLocation\\code\\VehiculeLocation\\VehiculeLocation.Frontend\\Pages\\Index.cshtml.cs",
+              "RelativeToolTip": "VehiculeLocation.Frontend\\Pages\\Index.cshtml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-14T11:36:03.948Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\i2300228\\Documents\\VehiculeLocation\\code\\VehiculeLocation\\VehiculeLocation.Frontend\\Pages\\Index.cshtml",
+              "RelativeDocumentMoniker": "VehiculeLocation.Frontend\\Pages\\Index.cshtml",
+              "ToolTip": "C:\\Users\\i2300228\\Documents\\VehiculeLocation\\code\\VehiculeLocation\\VehiculeLocation.Frontend\\Pages\\Index.cshtml",
+              "RelativeToolTip": "VehiculeLocation.Frontend\\Pages\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-14T11:36:01.035Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "VehiculeLocation.Frontend",
+              "DocumentMoniker": "C:\\Users\\i2300228\\Documents\\VehiculeLocation\\code\\VehiculeLocation\\VehiculeLocation.Frontend\\VehiculeLocation.Frontend.csproj",
+              "RelativeDocumentMoniker": "VehiculeLocation.Frontend\\VehiculeLocation.Frontend.csproj",
+              "ToolTip": "C:\\Users\\i2300228\\Documents\\VehiculeLocation\\code\\VehiculeLocation\\VehiculeLocation.Frontend\\VehiculeLocation.Frontend.csproj",
+              "RelativeToolTip": "VehiculeLocation.Frontend\\VehiculeLocation.Frontend.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-10-14T08:58:38.934Z"
+              "WhenOpened": "2025-10-14T11:41:52.315Z",
+              "EditorCaption": ""
             }
           ]
         }

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\i2300645\\Documents\\csharp\\VehiculeLocation\\code\\VehiculeLocation\\VehiculeLocation.Frontend\\VehiculeLocation.Frontend.csproj": {}
+    "C:\\Users\\i2300228\\Documents\\VehiculeLocation\\code\\VehiculeLocation\\VehiculeLocation.Frontend\\VehiculeLocation.Frontend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\i2300645\\Documents\\csharp\\VehiculeLocation\\code\\VehiculeLocation\\VehiculeLocation.Frontend\\VehiculeLocation.Frontend.csproj": {
+    "C:\\Users\\i2300228\\Documents\\VehiculeLocation\\code\\VehiculeLocation\\VehiculeLocation.Frontend\\VehiculeLocation.Frontend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\i2300645\\Documents\\csharp\\VehiculeLocation\\code\\VehiculeLocation\\VehiculeLocation.Frontend\\VehiculeLocation.Frontend.csproj",
+        "projectUniqueName": "C:\\Users\\i2300228\\Documents\\VehiculeLocation\\code\\VehiculeLocation\\VehiculeLocation.Frontend\\VehiculeLocation.Frontend.csproj",
         "projectName": "VehiculeLocation.Frontend",
-        "projectPath": "C:\\Users\\i2300645\\Documents\\csharp\\VehiculeLocation\\code\\VehiculeLocation\\VehiculeLocation.Frontend\\VehiculeLocation.Frontend.csproj",
-        "packagesPath": "C:\\Users\\i2300645\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\i2300645\\Documents\\csharp\\VehiculeLocation\\code\\VehiculeLocation\\VehiculeLocation.Frontend\\obj\\",
+        "projectPath": "C:\\Users\\i2300228\\Documents\\VehiculeLocation\\code\\VehiculeLocation\\VehiculeLocation.Frontend\\VehiculeLocation.Frontend.csproj",
+        "packagesPath": "C:\\Users\\i2300228\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\i2300228\\Documents\\VehiculeLocation\\code\\VehiculeLocation\\VehiculeLocation.Frontend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\i2300645\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\i2300228\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
