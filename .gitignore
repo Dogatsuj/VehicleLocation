@@ -105,6 +105,8 @@ Desktop.ini
 
 # Fichiers de base de données locale (SQLite, etc.)
 *.db
+*.db-shm
+*.db-wal
 
 # Fichiers de package nuget (s'ils existent dans le dépôt)
 **/packages/*
