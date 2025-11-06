@@ -1,0 +1,112 @@
+# Fichier .gitignore standard pour les projets .NET / Visual Studio
+
+# Ce fichier vise à exclure les fichiers générés automatiquement,
+# les résultats de compilation, les fichiers temporaires et les
+# paramètres locaux de l'utilisateur.
+
+##################################
+# 1. Dossiers de Build et Binaires
+##################################
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+*.exe
+*.dll
+*.pdb
+*.tmp
+*.log
+*.suo
+*.user
+
+##################################
+# 2. Visual Studio et fichiers IDE
+##################################
+
+# Dossier de packages (NuGet)
+[Pp]ackages/
+.vs/ # Dossier de configuration local de Visual Studio
+
+# Fichiers de cache et temporaires
+*.obj
+*.exe
+*.dll
+*.lib
+*.ncb
+*.sql
+*.res
+*.cache
+
+# Paramètres utilisateur
+*.userprefs
+*.useroptions
+*.bak
+*.ide-version
+
+##################################
+# 3. Base de Données (Spécifique à la demande)
+##################################
+
+# Exclut tous les fichiers se terminant par .db (base de données locale)
+*.db
+
+# Exclut également les fichiers potentiels de base de données SQL Server LocalDB
+*.mdf
+*.ldf
+
+##################################
+# 4. Fichiers de Test et Profiling
+##################################
+TestResults/
+*.trx
+*.coverage
+*.vspscc
+
+##################################
+# 5. Autres fichiers générés
+##################################
+
+# Rapports de génération (par exemple, pour les services Web)
+*.publishsettings
+
+# Fichiers de mise en page et de dépendances
+node_modules/
+npm-debug.log*
+
+##################################
+# 6. Windows et macOS (si vous travaillez dans un environnement multi-OS)
+##################################
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# macOS
+.DS_Store
+
+################################
+# IDE/Compilation files (.NET) #
+################################
+
+# Dossiers générés par Visual Studio (à la racine ou dans les projets)
+.vs/
+
+# Dossiers de compilation générés dans chaque sous-dossier de projet
+**/bin/
+**/obj/
+[Bb]in/
+[Oo]bj/
+**/Debug/
+
+# Fichiers de configuration de Visual Studio spécifiques à l'utilisateur
+*.suo
+*.wsuo
+*.user
+
+# Fichiers de base de données locale (SQLite, etc.)
+*.db
+*.db-shm
+*.db-wal
+
+# Fichiers de package nuget (s'ils existent dans le dépôt)
+**/packages/*
