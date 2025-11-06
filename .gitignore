@@ -94,6 +94,9 @@ Desktop.ini
 # Dossiers de compilation générés dans chaque sous-dossier de projet
 **/bin/
 **/obj/
+[Bb]in/
+[Oo]bj/
+**/Debug/
 
 # Fichiers de configuration de Visual Studio spécifiques à l'utilisateur
 *.suo
