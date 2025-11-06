@@ -1,1 +1,17 @@
-﻿
+﻿.main-container {
+    background-color: white;
+    border-radius: 10px;
+}
+
+h2{
+    margin-block: 10px;
+    margin-inline: 2%;
+}
+
+.list-container{
+    display: flex;
+}
+
+.card {
+    margin: 10px;
+}
