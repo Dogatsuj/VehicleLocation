@@ -12,84 +12,19 @@
 
         @foreach (var vehicle in Model.Vehicles)
         {
-            <div class="card" style="width: 18rem;">
+            <div class="vehicle-card">
                 <img src="@vehicle.ImagePath" class="card-img-top" alt="vehicle image">
-                <div class="card-body">
-                    <h5 class="card-title">@vehicle.Model</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-                    <a asp-page="/InfoCars" asp-route-id="@vehicle.Id" class="btn btn-primary">Voir les détails</a>
+                <div class="vehicle-card-body">
+                    <div class="top">
+                        <h5 class="card-title">@vehicle.Brand @vehicle.Model</h5>
+                        <p class="card-text">@vehicle.Description</p>
+                    </div>
+                    <div class="bottom">
+                        <h6>@vehicle.DailyRentalPrice $/day</h6>
+                        <a href="infoCars/@vehicle.Id">Details↗</a>
+                    </div>
                 </div>
             </div>
         }
-        
-
-            <div class="card" style="width: 18rem;">
-            <img src="https://www.index-assurance.fr/fichiers/images/peugeot-208-allure.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-
-            <div class="card" style="width: 18rem;">
-            <img src="https://www.index-assurance.fr/fichiers/images/peugeot-208-allure.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-
-            <div class="card" style="width: 18rem;">
-            <img src="https://www.index-assurance.fr/fichiers/images/peugeot-208-allure.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-
-        <div class="card" style="width: 18rem;">
-            <img src="https://www.index-assurance.fr/fichiers/images/peugeot-208-allure.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-        </div>
     </div>
-</div>
-
-
-
-<div class="text-center">
-    <h1 class="display-4">All rentable vehicles</h1>
-
-    @if (Model.Vehicles.Any())
-    {
-        <table class="table table-striped mt-4">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Modèle</th>
-                    <th>Places</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var vehicule in Model.Vehicles)
-                {
-                    <tr>
-                        <td>@vehicule.Id</td>
-                        <td>@vehicule.Model</td>
-                        <td>@vehicule.Seats</td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    }
-    else
-    {
-        <p class="mt-4">No vehicle found.</p>
-    }
 </div>

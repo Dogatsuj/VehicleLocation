@@ -1,17 +1,69 @@
 ﻿.main-container {
     background-color: white;
     border-radius: 10px;
+    padding: 15px;
 }
 
-h2{
-    margin-block: 10px;
+h2 {
+    margin-bottom: 15px;
     margin-inline: 2%;
 }
 
-.list-container{
+.list-container {
+    width: 100%;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-.card {
-    margin: 10px;
+.vehicle-card {
+    width: 20%;
+    margin-inline: 15px;
+    margin-bottom: 15px;
+    max-height: 350px;
+    border: 1px solid #DDDDDD;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+
+    .vehicle-card:hover {
+        transform: scale(1.05);
+    }
+
+    .vehicle-card img {
+        width: 100%;
+        height: 45%;
+        object-fit: cover;
+    }
+
+.vehicle-card-body {
+    height: 55%;
+    padding-inline: 5px;
+}
+
+
+    .vehicle-card-body .top {
+        height: 70%;
+    }
+
+
+
+    .vehicle-card-body .bottom {
+        height: 30%;
+        display: flex;
+        padding-bottom: 2%;
+    }
+
+.bottom a {
+    width: 30%;
+    text-decoration: none;
+}
+
+.bottom h6 {
+    width: 70%;
+}
+
+h5 {
+    margin-top: 5px;
 }
