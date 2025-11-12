@@ -1,21 +1,46 @@
-﻿@page
-@model IndexModel
+﻿@page "{id:int}" 
+@model VehiculeLocation.Frontend.Pages.InfoCarsModel
 @{
-    ViewData["Title"] = "Accueil";
+    ViewData["Title"] = "Informations véhicule";
 }
 
-<link rel="stylesheet" href="~/css/home.css" />
+<div class="container mt-5">
+    @if (Model.Vehicle != null)
+    {
+        <div class="row">
+            <div class="col-md-6">
+                <img src="@Model.Vehicle.ImagePath" class="img-fluid rounded" alt="@Model.Vehicle.Model">
+            </div>
+            <div class="col-md-6">
+                <h1>@Model.Vehicle.Brand @Model.Vehicle.Model</h1>
+                <hr />
+                
+                <div class="details-info">
+                    <p><strong>ID:</strong> @Model.Vehicle.Id</p>
+                    <p><strong>Marque:</strong> @Model.Vehicle.Brand</p>
+                    <p><strong>Modèle:</strong> @Model.Vehicle.Model</p>
+                    <p><strong>Places:</strong> @Model.Vehicle.Seats</p>
+                    <p><strong>Type de motorisation:</strong> @Model.Vehicle.Motorisation</p>
+                    <p><strong>Transmission automatique:</strong> @(Model.Vehicle.IsAutomaticTransmission ? "Oui" : "Non")</p>
+                    <p><strong>Prix par jour:</strong> @Model.Vehicle.DailyRentalPrice €</p>
+                    @if (!string.IsNullOrEmpty(Model.Vehicle.Description))
+                    {
+                        <p><strong>Description:</strong> @Model.Vehicle.Description</p>
+                    }
+                </div>
 
-<div class="home-container">
-    <h1 class="main-heading">Rent a vehicle now !</h1>
-    
-    <a href="/list" class="btn-primary-custom">
-        See rentable vehicles
-    </a>
-
-    <p class="sub-heading">Or Rent your own vehicle !</p>
-
-    <a href="/rent" class="btn-secondary-custom">
-        Rent my vehicle
-    </a>
+                <div class="mt-4">
+                    <a asp-page="/List" class="btn btn-secondary">Retour à la liste</a>
+                    <a href="#" class="btn btn-primary">Réserver ce véhicule</a>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-warning" role="alert">
+            Véhicule non trouvé.
+        </div>
+        <a asp-page="/List" class="btn btn-secondary">Retour à la liste</a>
+    }
 </div>
