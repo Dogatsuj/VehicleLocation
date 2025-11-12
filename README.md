@@ -63,3 +63,7 @@ dotnet ef migrations remove
 
 ## Notes
 - Ces commandes doivent être exécutées dans le dossier back
+- Si malgré l'installation dotnet ef n'est pas reconu, vérifier que le fichier est bien présent dans C:/users/[utilisateur]/.dotnet/tools/, si oui executé dans le back la commande suivante
+```bash
+$env:PATH += ";$env:USERPROFILE\.dotnet\tools"
+```
