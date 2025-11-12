@@ -1,69 +1,70 @@
-# VehiculeLocation
-# Commandes Entity Framework Core
+# VehicleRental
+# Entity Framework Core Commands
 
-Ce document récapitule les principales commandes utilisées pour gérer les **migrations** et la **base de données** avec **Entity Framework Core**.
+This document summarises the main commands used to manage **migrations** and the **database** with **Entity Framework Core**.
 
 ---
 
-## Ajouter une migration
-Crée une nouvelle migration pour enregistrer les modifications du modèle de données.
+## Add a migration
+Creates a new migration to record changes to the data model.
 ```bash
-dotnet ef migrations add [NomMigration]
+dotnet ef migrations add [MigrationName]
 ```
 
 ---
 
-## Mettre à jour la base de données
-Applique les migrations à la base de données.
+## Update the database
+Applies migrations to the database.
 ```bash
 dotnet ef database update
 ```
 
 ---
 
-## Installer les outils de migrations
-Installe l’outil CLI `dotnet-ef` globalement sur votre système.
+## Install migration tools
+Installs the `dotnet-ef` CLI tool globally on your system.
 ```bash
 dotnet tool install --global dotnet-ef
 ```
 
 ---
 
-## Supprimer (drop) la base de données
-Supprime la base de données actuelle sans confirmation.
+## Drop the database
+Drops the current database without confirmation.
 ```bash
 dotnet ef database drop --force
 ```
 
 ---
 
-## Voir la liste des migrations
-Affiche toutes les migrations existantes.
+## View the list of migrations
+Displays all existing migrations.
 ```bash
 dotnet ef migrations list
 ```
 
 ---
 
-## Revenir à une migration antérieure
-Restaure la base à une migration spécifique.
+## Revert to a previous migration
+Restores the database to a specific migration.
 ```bash
-dotnet ef database update [NomMigration]
+dotnet ef database update [MigrationName]
 ```
 
 ---
 
-## Supprimer la dernière migration
-Supprime le dernier fichier de migration (à faire après être revenu sur une version antérieure).
+## Remove the last migration
+Removes the last migration file (to be done after reverting to a previous version).
 ```bash
 dotnet ef migrations remove
 ```
 
 ---
 
+
 ## Notes
-- Ces commandes doivent être exécutées dans le dossier back
-- Si malgré l'installation dotnet ef n'est pas reconu, vérifier que le fichier est bien présent dans C:/users/[utilisateur]/.dotnet/tools/, si oui executé dans le back la commande suivante
+- These commands must be executed in the back folder
+- If dotnet ef is not recognised despite installation, check that the file is present in C:/users/[user]/.dotnet/tools/. If so, execute the following command in the back folder
 ```bash
 $env:PATH += ";$env:USERPROFILE\.dotnet\tools"
 ```
