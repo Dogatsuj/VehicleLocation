@@ -23,21 +23,21 @@ namespace VehiculeLocation.Frontend.Pages
 
         public async Task<IActionResult> OnGetAsync()
         {
-            Console.WriteLine($"🔍 InfoCars - Requested ID: {Id}");
+            Console.WriteLine($" InfoCars - Requested ID: {Id}");
             
             try
             {
                 var client = _httpClientFactory.CreateClient("ApiBackend");
                 
-                Console.WriteLine($"📡 Calling API: api/Vehicle/{Id}");
+                Console.WriteLine($"Calling API: api/Vehicle/{Id}");
                 var response = await client.GetAsync($"api/Vehicle/{Id}");
                 
-                Console.WriteLine($"📡 API Response Status: {response.StatusCode}");
+                Console.WriteLine($"API Response Status: {response.StatusCode}");
 
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
-                    Console.WriteLine($"📄 API Content: {content}");
+                    Console.WriteLine($" API Content: {content}");
 
                     var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
 
@@ -45,26 +45,25 @@ namespace VehiculeLocation.Frontend.Pages
 
                     if (Vehicle == null)
                     {
-                        Console.WriteLine("⚠️ Vehicle is null after deserialization");
+                        Console.WriteLine(" Vehicle is null after deserialization");
                         return NotFound();
                     }
                     
-                    Console.WriteLine($"✅ Vehicle loaded: {Vehicle.Brand} {Vehicle.Model}");
+                    Console.WriteLine($" Vehicle loaded: {Vehicle.Brand} {Vehicle.Model}");
                 }
                 else if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
                 {
-                    Console.WriteLine($"❌ API returned 404 - Vehicle {Id} not found");
                     return NotFound();
                 }
                 else
                 {
-                    Console.WriteLine($"❌ API Call failed: {response.StatusCode}");
+                    Console.WriteLine($" API Call failed: {response.StatusCode}");
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"💥 Exception: {ex.Message}");
-                Console.WriteLine($"💥 StackTrace: {ex.StackTrace}");
+                Console.WriteLine($" Exception: {ex.Message}");
+                Console.WriteLine($" StackTrace: {ex.StackTrace}");
             }
 
             return Page();
