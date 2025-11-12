@@ -6,8 +6,4 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Content Include="wwwroot\css\indexCSS\index.css" />
-  </ItemGroup>
-
 </Project>
