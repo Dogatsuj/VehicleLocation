@@ -173,4 +173,79 @@ public class VehicleController : ControllerBase
         return Ok(result);
     }
 
+    /// <summary>
+    /// Ajoute un nouveau véhicule.
+    /// POST: api/Vehicule
+    /// </summary>
+    /// <param name="vehicle">Le véhicule à ajouter.</param>
+    /// <returns>Le véhicule créé avec son ID.</returns>
+    /// <response code="201">Retourne le véhicule créé.</response>
+    /// <response code="400">Si les données fournies sont invalides.</response>
+    [HttpPost]
+    public async Task<ActionResult<Vehicle>> CreateVehicle([FromBody] Vehicle vehicle)
+    {
+        // Validation basique
+        if (vehicle == null)
+        {
+            return BadRequest("Le véhicule fourni est nul.");
+        }
+
+        if (string.IsNullOrWhiteSpace(vehicle.Brand))
+            return BadRequest("La marque est obligatoire.");
+
+        if (string.IsNullOrWhiteSpace(vehicle.Model))
+            return BadRequest("Le modèle est obligatoire.");
+
+        if (vehicle.Seats <= 0)
+            return BadRequest("Le nombre de places doit être supérieur à 0.");
+
+        if (vehicle.DailyRentalPrice < 0)
+            return BadRequest("Le prix journalier doit être positif.");
+
+        // Ajout du véhicule dans la base de données
+        _context.Vehicules.Add(vehicle);
+        await _context.SaveChangesAsync();
+
+        // Retourne le véhicule créé avec le code HTTP 201
+        return CreatedAtAction(nameof(GetVehicle), new { id = vehicle.Id }, vehicle);
+    }
+
+    /// <summary>
+    /// Ajoute une nouvelle location à un véhicule existant.
+    /// POST: api/Vehicule/{vehiculeId}/locations
+    /// </summary>
+    /// <param name="vehiculeId">ID du véhicule pour lequel créer la location.</param>
+    /// <param name="rental">Détails de la location à ajouter.</param>
+    /// <returns>La location créée.</returns>
+    [HttpPost("{vehiculeId}/locations")]
+    public async Task<ActionResult<Rental>> AddRental(int vehiculeId, [FromBody] Rental rental)
+    {
+        // Vérifier si le véhicule existe
+        var vehicle = await _context.Vehicules.FindAsync(vehiculeId);
+        if (vehicle == null)
+            return NotFound($"Véhicule avec l'ID {vehiculeId} non trouvé.");
+
+        // Validation des dates
+        if (rental.DateStart >= rental.DateEnd)
+            return BadRequest("La date de début doit précéder la date de fin.");
+
+        // Vérifier la disponibilité
+        bool isBooked = await _context.Locations
+            .Where(l => l.VehiculeId == vehiculeId)
+            .AnyAsync(l => l.DateStart < rental.DateEnd && l.DateEnd > rental.DateStart);
+
+        if (isBooked)
+            return BadRequest("Le véhicule n'est pas disponible sur ce créneau.");
+
+        // Associer la location au véhicule
+        rental.VehiculeId = vehiculeId;
+
+        // Ajouter la location
+        _context.Locations.Add(rental);
+        await _context.SaveChangesAsync();
+
+        // Retourner la location créée avec code HTTP 201
+        return CreatedAtAction(nameof(GetLocationsByVehicule), new { vehiculeId = vehiculeId }, rental);
+    }
+
 }
