@@ -19,7 +19,7 @@ namespace VehiculeLocation.Backend.Data.Seeding
                     Model = "Clio V",
                     Seats = 5,
                     DailyRentalPrice = 30.50f,
-                    Motorisation = TypeMotorisationEnum.Essence,
+                    Motorisation = TypeMotorisationEnum.Petrol,
                     IsAutomaticTransmission = false,
                     Description = "Une voiture qui roule",
                     ImagePath = "https://upload.wikimedia.org/wikipedia/commons/6/6d/Dunkerque-1.jpg"
@@ -43,7 +43,7 @@ namespace VehiculeLocation.Backend.Data.Seeding
                     Model = "Twingo",
                     Seats = 5,
                     DailyRentalPrice = 25.00f,
-                    Motorisation = TypeMotorisationEnum.Electrique,
+                    Motorisation = TypeMotorisationEnum.Electric,
                     IsAutomaticTransmission = true,
                     Description = "Une voiture qui roule",
                     ImagePath = "https://upload.wikimedia.org/wikipedia/commons/6/6d/Dunkerque-1.jpg"
@@ -55,7 +55,7 @@ namespace VehiculeLocation.Backend.Data.Seeding
                     Model = "C3",
                     Seats = 5,
                     DailyRentalPrice = 35.00f,
-                    Motorisation = TypeMotorisationEnum.Essence,
+                    Motorisation = TypeMotorisationEnum.Petrol,
                     IsAutomaticTransmission = false,
                     Description = "Une voiture qui roule",
                     ImagePath = "https://upload.wikimedia.org/wikipedia/commons/6/6d/Dunkerque-1.jpg"

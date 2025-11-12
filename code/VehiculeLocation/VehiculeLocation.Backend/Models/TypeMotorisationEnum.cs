@@ -6,10 +6,10 @@
     public enum TypeMotorisationEnum
     {
         // Les valeurs commencent par 1 par convention
-        Essence = 1,
+        Petrol = 1,
         Diesel = 2,
-        Electrique = 3,
-        Hybride = 4,
-        Hydrogene = 5
+        Electric = 3,
+        Hybrid = 4,
+        Hydrogen = 5
     }
 }

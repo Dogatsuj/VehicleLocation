@@ -29,6 +29,7 @@ public class VehicleController : ControllerBase
     /// Récupère la liste de toutes les périodes de location pour un véhicule donné.
     /// GET: api/Vehicule/{vehiculeId}/locations
     /// </summary>
+    /// <param name="vehiculeId">L'ID du véhicule à vérifier.</param>
     [HttpGet("{vehiculeId}/locations")]
     public async Task<ActionResult<IEnumerable<Rental>>> GetLocationsByVehicule(int vehiculeId)
     {
@@ -87,6 +88,14 @@ public class VehicleController : ControllerBase
     /// Exemple d'appel :
     /// GET /api/Vehicle/research?brand=Citroën&seats=5&isAutomaticTransmission=true&dateDebut=2025-11-12&dateFin=2025-11-14
     /// </summary>
+    /// <param name="brand">Filtre par marque du véhicule.</param>
+    /// <param name="model">Filtre par modèle du véhicule.</param>
+    /// <param name="seats">Filtre par nombre de places.</param>
+    /// <param name="maxDailyPrice">Filtre par prix journalier maximum.</param>
+    /// <param name="isAutomaticTransmission">Filtre par type de transmission.</param>
+    /// <param name="motorisation">Filtre par type de motorisation.</param>
+    /// <param name="dateDebut">Date et heure de début pour vérifier la disponibilité.</param>
+    /// <param name="dateFin">Date et heure de fin pour vérifier la disponibilité.</param>
     [HttpGet("research")]
     public async Task<ActionResult<IEnumerable<Vehicle>>> Research(
         [FromQuery] string? brand,

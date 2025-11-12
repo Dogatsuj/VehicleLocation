@@ -116,7 +116,7 @@ namespace VehiculeLocation.Backend.Migrations
                             ImagePath = "https://upload.wikimedia.org/wikipedia/commons/6/6d/Dunkerque-1.jpg",
                             IsAutomaticTransmission = false,
                             Model = "Clio V",
-                            Motorisation = "Essence",
+                            Motorisation = "Petrol",
                             Seats = 5
                         },
                         new
@@ -140,7 +140,7 @@ namespace VehiculeLocation.Backend.Migrations
                             ImagePath = "https://upload.wikimedia.org/wikipedia/commons/6/6d/Dunkerque-1.jpg",
                             IsAutomaticTransmission = true,
                             Model = "Twingo",
-                            Motorisation = "Electrique",
+                            Motorisation = "Electric",
                             Seats = 5
                         },
                         new
@@ -152,7 +152,7 @@ namespace VehiculeLocation.Backend.Migrations
                             ImagePath = "https://upload.wikimedia.org/wikipedia/commons/6/6d/Dunkerque-1.jpg",
                             IsAutomaticTransmission = false,
                             Model = "C3",
-                            Motorisation = "Essence",
+                            Motorisation = "Petrol",
                             Seats = 5
                         });
                 });

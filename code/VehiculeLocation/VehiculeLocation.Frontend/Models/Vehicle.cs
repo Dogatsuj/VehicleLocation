@@ -7,7 +7,7 @@
         public string? Model { get; set; }
         public int Seats { get; set; }
         public float DailyRentalPrice { get; set; }
-        public TypeMotorisationEnum Motorisation { get; set; }
+        public string? Motorisation { get; set; }
         public Boolean IsAutomaticTransmission { get; set; }
         public string? ImagePath { get; set; }
         public string? Description { get; set; }
