@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "VehicleStart",
+    "Projects": [
+      {
+        "Path": "VehiculeLocation.Backend\\VehiculeLocation.Backend.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "VehiculeLocation.Frontend\\VehiculeLocation.Frontend.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]
