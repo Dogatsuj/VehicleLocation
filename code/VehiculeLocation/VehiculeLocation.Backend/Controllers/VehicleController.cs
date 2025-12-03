@@ -4,7 +4,7 @@ using VehiculeLocation.Backend.Data;
 using VehiculeLocation.Backend.Models;
 
 [ApiController]
-[Route("api/[controller]")] // L'URL de base sera /api/Vehicule
+[Route("api/[controller]")] // L'URL de base sera /api/Vehicle
 public class VehicleController : ControllerBase
 {
     private readonly AppDbContext _context;
@@ -16,10 +16,10 @@ public class VehicleController : ControllerBase
 
     /// <summary>
     /// Récupère la liste de tous les véhicules.
-    /// GET: api/Vehicule
+    /// GET: api/Vehicle
     /// </summary>
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Vehicle>>> GetVehicules()
+    public async Task<ActionResult<IEnumerable<Vehicle>>> GetVehicles()
     {
         // Retourne la liste complète des véhicules de la base de données
         return await _context.Vehicles.ToListAsync();
@@ -48,35 +48,35 @@ public class VehicleController : ControllerBase
 
     /// <summary>
     /// Récupère la liste de toutes les périodes de location pour un véhicule donné.
-    /// GET: api/Vehicule/{vehiculeId}/locations
+    /// GET: api/Vehicle/{VehicleId}/locations
     /// </summary>
-    /// <param name="vehiculeId">L'ID du véhicule à vérifier.</param>
-    [HttpGet("{vehiculeId}/locations")]
-    public async Task<ActionResult<IEnumerable<Rental>>> GetLocationsByVehicule(int vehiculeId)
+    /// <param name="vehicleId">L'ID du véhicule à vérifier.</param>
+    [HttpGet("{vehicleId}/locations")]
+    public async Task<ActionResult<IEnumerable<Rental>>> GetLocationsByVehicle(int vehicleId)
     {
         // 1. Vérifier si le véhicule existe
-        if (!await _context.Vehicles.AnyAsync(v => v.Id == vehiculeId))
+        if (!await _context.Vehicles.AnyAsync(v => v.Id == vehicleId))
         {
-            return NotFound($"Véhicule avec l'ID {vehiculeId} non trouvé.");
+            return NotFound($"Véhicule avec l'ID {vehicleId} non trouvé.");
         }
 
         // 2. Récupérer toutes les locations liées à cet ID
         var locations = await _context.Locations
-                                      .Where(l => l.VehicleId == vehiculeId)
+                                      .Where(l => l.VehicleId == vehicleId)
                                       .ToListAsync();
 
         return locations;
     }
     /// <summary>
     /// Vérifie si le véhicule ciblé n'a AUCUNE location sur le créneau donné.
-    /// GET: api/Vehicule/{vehiculeId}/available?start={dateDebut}&end={dateFin}
+    /// GET: api/Vehicle/{vehicleId}/available?dateDebut={dateDebut}&end={dateFin}
     /// </summary>
-    /// <param name="vehiculeId">L'ID du véhicule à vérifier.</param>
+    /// <param name="vehicleId">L'ID du véhicule à vérifier.</param>
     /// <param name="dateDebut">Date et heure de début du créneau (format ISO 8601).</param>
     /// <param name="dateFin">Date et heure de fin du créneau (format ISO 8601).</param>
-    [HttpGet("{vehiculeId}/available")]
+    [HttpGet("{vehicleId}/available")]
     public async Task<ActionResult<bool>> CheckAvailability(
-        int vehiculeId,
+        int vehicleId,
         [FromQuery] DateTime dateDebut,
         [FromQuery] DateTime dateFin)
     {
@@ -87,16 +87,16 @@ public class VehicleController : ControllerBase
         }
 
         // 2. Vérifier l'existence du véhicule
-        if (!await _context.Vehicles.AnyAsync(v => v.Id == vehiculeId))
+        if (!await _context.Vehicles.AnyAsync(v => v.Id == vehicleId))
         {
-            return NotFound($"Véhicule avec l'ID {vehiculeId} non trouvé.");
+            return NotFound($"Véhicule avec l'ID {vehicleId} non trouvé.");
         }
 
         // 3. Logique de chevauchement de créneau (Overlap Logic) :
         // Un chevauchement existe si : (Début_Actuel < Fin_Nouvelle) ET (Fin_Actuelle > Début_Nouvelle)
 
         var isBooked = await _context.Locations
-            .Where(l => l.VehicleId == vehiculeId)
+            .Where(l => l.VehicleId == vehicleId)
             .AnyAsync(l => l.DateStart < dateFin && l.DateEnd> dateDebut);
 
         // Si isBooked est VRAI, cela signifie qu'une location existe sur ce créneau.
@@ -175,7 +175,7 @@ public class VehicleController : ControllerBase
 
     /// <summary>
     /// Ajoute un nouveau véhicule.
-    /// POST: api/Vehicule
+    /// POST: api/Vehicle
     /// </summary>
     /// <param name="vehicle">Le véhicule à ajouter.</param>
     /// <returns>Le véhicule créé avec son ID.</returns>
@@ -212,18 +212,18 @@ public class VehicleController : ControllerBase
 
     /// <summary>
     /// Ajoute une nouvelle location à un véhicule existant.
-    /// POST: api/Vehicule/{vehiculeId}/locations
+    /// POST: api/Vehicle/{vehicleId}/locations
     /// </summary>
-    /// <param name="vehiculeId">ID du véhicule pour lequel créer la location.</param>
+    /// <param name="vehicleId">ID du véhicule pour lequel créer la location.</param>
     /// <param name="rental">Détails de la location à ajouter.</param>
     /// <returns>La location créée.</returns>
-    [HttpPost("{vehiculeId}/locations")]
-    public async Task<ActionResult<Rental>> AddRental(int vehiculeId, [FromBody] Rental rental)
+    [HttpPost("{vehicleId}/locations")]
+    public async Task<ActionResult<Rental>> AddRental(int vehicleId, [FromBody] Rental rental)
     {
         // Vérifier si le véhicule existe
-        var vehicle = await _context.Vehicles.FindAsync(vehiculeId);
+        var vehicle = await _context.Vehicles.FindAsync(vehicleId);
         if (vehicle == null)
-            return NotFound($"Véhicule avec l'ID {vehiculeId} non trouvé.");
+            return NotFound($"Véhicule avec l'ID {vehicleId} non trouvé.");
 
         // Validation des dates
         if (rental.DateStart >= rental.DateEnd)
@@ -231,21 +231,21 @@ public class VehicleController : ControllerBase
 
         // Vérifier la disponibilité
         bool isBooked = await _context.Locations
-            .Where(l => l.VehicleId == vehiculeId)
+            .Where(l => l.VehicleId == vehicleId)
             .AnyAsync(l => l.DateStart < rental.DateEnd && l.DateEnd > rental.DateStart);
 
         if (isBooked)
             return BadRequest("Le véhicule n'est pas disponible sur ce créneau.");
 
         // Associer la location au véhicule
-        rental.VehicleId = vehiculeId;
+        rental.VehicleId = vehicleId;
 
         // Ajouter la location
         _context.Locations.Add(rental);
         await _context.SaveChangesAsync();
 
         // Retourner la location créée avec code HTTP 201
-        return CreatedAtAction(nameof(GetLocationsByVehicule), new { vehiculeId = vehiculeId }, rental);
+        return CreatedAtAction(nameof(GetLocationsByVehicle), new { vehicleId = vehicleId }, rental);
     }
 
 }
