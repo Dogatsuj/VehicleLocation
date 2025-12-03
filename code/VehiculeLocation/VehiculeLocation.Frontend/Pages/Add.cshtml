@@ -1,5 +1,82 @@
-﻿@page
+@page
 @model VehiculeLocation.Frontend.Pages.AddModel
 @{
     ViewData["Title"] = "Add a vehicle";
+}
+
+<link rel="stylesheet" href="~/css/addVehicle.css" asp-append-version="true" />
+
+<section class="add-page">
+    <h1 class="add-title">Add a rentable vehicle</h1>
+
+    <div class="add-grid">
+        <div class="add-column">
+            <label for="brand">Brand</label>
+            <input id="brand" name="brand" type="text" placeholder="Renault" />
+
+            <label for="model">Model</label>
+            <input id="model" name="model" type="text" placeholder="Clio" />
+
+            <label for="transmission">Transmission</label>
+            <div class="select-shell">
+                <select id="transmission" name="transmission">
+                    <option>Manual</option>
+                    <option>Automatic</option>
+                </select>
+                <span class="chevron" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 9l6 6 6-6" />
+                    </svg>
+                </span>
+            </div>
+
+            <label for="description">Description</label>
+            <textarea id="description" name="description" rows="4" placeholder="Renault Clio from 2017, very good state ..."></textarea>
+        </div>
+
+        <div class="add-column">
+            <label for="motorisation">Motorisation</label>
+            <div class="select-shell">
+                <select id="motorisation" name="motorisation">
+                    <option>Gasoline</option>
+                    <option>Diesel</option>
+                    <option>Hybrid</option>
+                    <option>Electric</option>
+                </select>
+                <span class="chevron" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 9l6 6 6-6" />
+                    </svg>
+                </span>
+            </div>
+
+            <label for="imageUrl">Image URL</label>
+
+            <label for="imageUrl">Preview</label>
+            <div class="preview-card">
+                <img id="previewImage" src="@Model.Vehicle?.ImagePath" alt="@($"{Model.Vehicle?.Brand} {Model.Vehicle?.Model}")" />
+            </div>
+        </div>
+    </div>
+
+    <div class="add-actions">
+        <button type="button" class="cta-button">Rent</button>
+    </div>
+</section>
+
+@section Scripts {
+    <script>
+        (function () {
+            const urlInput = document.getElementById('imageUrl');
+            const preview = document.getElementById('previewImage');
+            const initial = preview?.getAttribute('src') || '';
+
+            if (urlInput && preview) {
+                const update = () => {
+                    preview.src = urlInput.value.trim() || initial;
+                };
+                urlInput.addEventListener('input', update);
+            }
+        })();
+    </script>
 }

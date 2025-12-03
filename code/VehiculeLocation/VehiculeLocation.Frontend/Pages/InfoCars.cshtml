@@ -1,46 +1,121 @@
 ﻿@page "{id:int}" 
 @model VehiculeLocation.Frontend.Pages.InfoCarsModel
 @{
-    ViewData["Title"] = "Informations véhicule";
+    ViewData["Title"] = "Vehicle details";
 }
 
-<div class="container mt-5">
-    @if (Model.Vehicle != null)
-    {
-        <div class="row">
-            <div class="col-md-6">
-                <img src="@Model.Vehicle.ImagePath" class="img-fluid rounded" alt="@Model.Vehicle.Model">
+<link rel="stylesheet" href="~/css/infoVehicul.css" asp-append-version="true" />
+
+@if (Model.Vehicle != null)
+{
+    <section class="info-page">
+        <div class="info-hero">
+            <div class="info-image">
+                <img src="@Model.Vehicle.ImagePath" alt="@($"{Model.Vehicle.Brand} {Model.Vehicle.Model}")" />
             </div>
-            <div class="col-md-6">
-                <h1>@Model.Vehicle.Brand @Model.Vehicle.Model</h1>
-                <hr />
-                
-                <div class="details-info">
-                    <p><strong>ID:</strong> @Model.Vehicle.Id</p>
-                    <p><strong>Marque:</strong> @Model.Vehicle.Brand</p>
-                    <p><strong>Modèle:</strong> @Model.Vehicle.Model</p>
-                    <p><strong>Places:</strong> @Model.Vehicle.Seats</p>
-                    <p><strong>Type de motorisation:</strong> @Model.Vehicle.Motorisation</p>
-                    <p><strong>Transmission automatique:</strong> @(Model.Vehicle.IsAutomaticTransmission ? "Oui" : "Non")</p>
-                    <p><strong>Prix par jour:</strong> @Model.Vehicle.DailyRentalPrice €</p>
-                    @if (!string.IsNullOrEmpty(Model.Vehicle.Description))
-                    {
-                        <p><strong>Description:</strong> @Model.Vehicle.Description</p>
-                    }
+            <div class="info-panel">
+                <div class="panel-top">
+                    <span class="eyebrow">@Model.Vehicle.Brand</span>
+                    <h1 class="car-title">@Model.Vehicle.Brand @Model.Vehicle.Model</h1>
+                    <p class="car-price">@Model.Vehicle.DailyRentalPrice.ToString("0.##") € / day</p>
+                    <p class="car-highlight">Comfort, connectivity and style for your daily drives.</p>
                 </div>
 
-                <div class="mt-4">
-                    <a asp-page="/List" class="btn btn-secondary">Retour à la liste</a>
-                    <a href="#" class="btn btn-primary">Réserver ce véhicule</a>
+                <form class="booking-form">
+                    <label for="startDate">From</label>
+                    <div class="input-shell">
+                        <input type="date" id="startDate" name="startDate" placeholder="Select a date" />
+                        <span class="chevron" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M6 9l6 6 6-6" />
+                            </svg>
+                        </span>
+                    </div>
+
+                    <label for="endDate">To</label>
+                    <div class="input-shell">
+                        <input type="date" id="endDate" name="endDate" placeholder="Select a date" />
+                        <span class="chevron" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M6 9l6 6 6-6" />
+                            </svg>
+                        </span>
+                    </div>
+
+                    <button type="button" class="cta-button">Book</button>
+                </form>
+            </div>
+        </div>
+
+        @if (!string.IsNullOrWhiteSpace(Model.Vehicle.Description))
+        {
+            <div class="info-description">
+                <h3>About this vehicle</h3>
+                <p>@Model.Vehicle.Description</p>
+            </div>
+        }
+
+        <div class="info-specs">
+            <div class="spec-card">
+                <div class="spec-icon fuel">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 3c-1.2 2.2-4 6.2-4 8.6a4 4 0 0 0 8 0C16 9.2 13.2 5.2 12 3Z" />
+                        <path d="M10.5 11.8c0 .6.5 1.2 1.2 1.2.6 0 1.2-.5 1.2-1.2" />
+                    </svg>
+                </div>
+                <div>
+                    <p class="spec-label">Powertrain</p>
+                    <p class="spec-value">@(!string.IsNullOrWhiteSpace(Model.Vehicle.Motorisation) ? Model.Vehicle.Motorisation : "Not provided")</p>
+                </div>
+            </div>
+            <div class="spec-card">
+                <div class="spec-icon transmission">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="4.5" />
+                        <path d="M12 3v4m0 10v4m-9-9h4m10 0h4m-3-6-2.5 2.5M7 16.5 4.5 19" />
+                    </svg>
+                </div>
+                <div>
+                    <p class="spec-label">Transmission</p>
+                    <p class="spec-value">@((Model.Vehicle.IsAutomaticTransmission ? "Automatic" : "Manual"))</p>
+                </div>
+            </div>
+            <div class="spec-card">
+                <div class="spec-icon seats">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="6" y="5" width="12" height="7" rx="2" />
+                        <path d="M8 12v4a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-4" />
+                        <path d="M6 12h12" />
+                    </svg>
+                </div>
+                <div>
+                    <p class="spec-label">Seats</p>
+                    <p class="spec-value">@Model.Vehicle.Seats</p>
+                </div>
+            </div>
+            <div class="spec-card">
+                <div class="spec-icon price">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M7 7h10l-1 4h-8Zm0 0-2 10h12l2-10" />
+                        <path d="M13 11.5 12.2 15m-1.2-3.5L10 15" />
+                    </svg>
+                </div>
+                <div>
+                    <p class="spec-label">Daily rate</p>
+                    <p class="spec-value">@Model.Vehicle.DailyRentalPrice.ToString("0.##") €</p>
                 </div>
             </div>
         </div>
-    }
-    else
-    {
-        <div class="alert alert-warning" role="alert">
-            Véhicule non trouvé.
+
+        <div class="info-actions">
+            <a asp-page="/List" class="back-link">← Back to list</a>
         </div>
-        <a asp-page="/List" class="btn btn-secondary">Retour à la liste</a>
-    }
-</div>
+    </section>
+}
+else
+{
+    <div class="alert alert-warning" role="alert">
+        Vehicle not found.
+    </div>
+    <a asp-page="/List" class="btn btn-secondary">Back to list</a>
+}

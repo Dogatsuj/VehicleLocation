@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap');
+
+:root {
+    --add-accent: #f6512e;
+    --add-ink: #0f172a;
+    --add-muted: #6b7280;
+    --add-surface: #f4f4f4;
+    --add-border: #e5e7eb;
+}
+
+.add-page {
+    font-family: 'Manrope', 'Segoe UI', sans-serif;
+    background: var(--add-surface);
+    padding: 2.5rem;
+    border-radius: 22px;
+    border: 1px solid var(--add-border);
+    color: var(--add-ink);
+    margin-top: 1rem;
+}
+
+.add-title {
+    text-align: center;
+    font-size: clamp(1.8rem, 2vw, 2.4rem);
+    margin: 0 0 2rem 0;
+    font-weight: 700;
+}
+
+.add-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem 3rem;
+    align-items: start;
+}
+
+.add-column {
+    display: grid;
+    gap: 0.75rem;
+}
+
+label {
+    font-weight: 700;
+    color: var(--add-ink);
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    border: 1px solid var(--add-border);
+    border-radius: 12px;
+    padding: 0.9rem 1rem;
+    font-size: 1rem;
+    background: #ffffff;
+    color: var(--add-ink);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    appearance: none;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: var(--add-accent);
+    box-shadow: 0 0 0 3px rgba(246, 81, 46, 0.12);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 140px;
+}
+
+.select-shell {
+    position: relative;
+}
+
+.select-shell select {
+    padding-right: 2.5rem;
+}
+
+.chevron {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9aa4b5;
+    pointer-events: none;
+    display: inline-flex;
+}
+
+.chevron svg {
+    width: 18px;
+    height: 18px;
+}
+
+.preview-card {
+    border: 1px solid var(--add-border);
+    border-radius: 12px;
+    background: #ffffff;
+    padding: 0.75rem;
+}
+
+.preview-card img {
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+    object-fit: cover;
+    aspect-ratio: 16 / 9;
+}
+
+.add-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.cta-button {
+    background: var(--add-accent);
+    color: #ffffff;
+    border: 1px solid var(--add-accent);
+    border-radius: 16px;
+    padding: 0.9rem 2.6rem;
+    font-weight: 700;
+    font-size: 1.05rem;
+    cursor: pointer;
+    transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+}
+
+.cta-button:hover,
+.cta-button:focus {
+    background: #e64b2a;
+    box-shadow: 0 6px 16px rgba(246, 81, 46, 0.22);
+    color: #ffffff;
+}
+
+@media (max-width: 576px) {
+    .add-page {
+        padding: 1.6rem;
+    }
+}
