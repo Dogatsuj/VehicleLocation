@@ -20,7 +20,8 @@ h2 {
     width: 20%;
     margin-inline: 15px;
     margin-bottom: 15px;
-    max-height: 350px;
+    min-height: 300px;
+    max-height: 400px;
     border: 1px solid #DDDDDD;
     border-radius: 10px;
     transition: transform 0.3s ease;
@@ -39,25 +40,48 @@ h2 {
 
 .vehicle-card-body {
     height: 55%;
-    padding-inline: 5px;
+    padding-inline: 3px;
 }
 
 
     .vehicle-card-body .top {
-        height: 70%;
+        height: 50%;
+        text-align: center;
     }
+        .top .card-description {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            width: 100%;
+            display: block;
+        }
 
 
 
     .vehicle-card-body .bottom {
-        height: 30%;
+        height: 25%;
         display: flex;
         padding-bottom: 2%;
+    }
+
+.middle{
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+    .middle div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
 
 .bottom a {
     width: 30%;
     text-decoration: none;
+    color: #F6502A
 }
 
 .bottom h6 {
