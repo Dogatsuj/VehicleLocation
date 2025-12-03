@@ -14,7 +14,7 @@ namespace VehiculeLocation.Backend.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Vehicules",
+                name: "Vehicles",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
@@ -30,7 +30,7 @@ namespace VehiculeLocation.Backend.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Vehicules", x => x.Id);
+                    table.PrimaryKey("PK_Vehicles", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -41,21 +41,21 @@ namespace VehiculeLocation.Backend.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     DateStart = table.Column<DateTime>(type: "TEXT", nullable: false),
                     DateEnd = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    VehiculeId = table.Column<int>(type: "INTEGER", nullable: false)
+                    VehicleId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Locations", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Locations_Vehicules_VehiculeId",
-                        column: x => x.VehiculeId,
-                        principalTable: "Vehicules",
+                        name: "FK_Locations_Vehicles_VehicleId",
+                        column: x => x.VehicleId,
+                        principalTable: "Vehicles",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.InsertData(
-                table: "Vehicules",
+                table: "Vehicles",
                 columns: new[] { "Id", "Brand", "DailyRentalPrice", "Description", "ImagePath", "IsAutomaticTransmission", "Model", "Motorisation", "Seats" },
                 values: new object[,]
                 {
@@ -67,7 +67,7 @@ namespace VehiculeLocation.Backend.Migrations
 
             migrationBuilder.InsertData(
                 table: "Locations",
-                columns: new[] { "Id", "DateEnd", "DateStart", "VehiculeId" },
+                columns: new[] { "Id", "DateEnd", "DateStart", "VehicleId" },
                 values: new object[,]
                 {
                     { 1, new DateTime(2025, 12, 13, 18, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2025, 12, 11, 9, 0, 0, 0, DateTimeKind.Unspecified), 1 },
@@ -77,9 +77,9 @@ namespace VehiculeLocation.Backend.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Locations_VehiculeId",
+                name: "IX_Locations_VehicleId",
                 table: "Locations",
-                column: "VehiculeId");
+                column: "VehicleId");
         }
 
         /// <inheritdoc />
@@ -89,7 +89,7 @@ namespace VehiculeLocation.Backend.Migrations
                 name: "Locations");
 
             migrationBuilder.DropTable(
-                name: "Vehicules");
+                name: "Vehicles");
         }
     }
 }

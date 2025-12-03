@@ -21,7 +21,7 @@ namespace VehiculeLocation.Backend.Data.Seeding
                 new Rental
                 {
                     Id = 1,
-                    VehiculeId = 1,
+                    VehicleId = 1,
                     DateStart = dateBase.AddDays(1).AddHours(9), // 11/12/2025 à 9h
                     DateEnd = dateBase.AddDays(3).AddHours(18)   // 13/12/2025 à 18h
                 },
@@ -30,7 +30,7 @@ namespace VehiculeLocation.Backend.Data.Seeding
                 new Rental
                 {
                     Id = 2,
-                    VehiculeId = 2,
+                    VehicleId = 2,
                     DateStart = dateBase.AddDays(5).AddHours(14), // 15/12/2025 à 14h
                     DateEnd = dateBase.AddDays(6).AddHours(14)    // 16/12/2025 à 14h
                 },
@@ -39,7 +39,7 @@ namespace VehiculeLocation.Backend.Data.Seeding
                 new Rental
                 {
                     Id = 3,
-                    VehiculeId = 3,
+                    VehicleId = 3,
                     DateStart = dateBase.AddDays(2).AddHours(8), // 12/12/2025 à 8h
                     DateEnd = dateBase.AddDays(2).AddHours(12)   // 12/12/2025 à 12h
                 },
@@ -48,7 +48,7 @@ namespace VehiculeLocation.Backend.Data.Seeding
                 new Rental
                 {
                     Id = 4,
-                    VehiculeId = 1,
+                    VehicleId = 1,
                     DateStart = dateBase.AddDays(8).AddHours(10), // 18/12/2025 à 10h
                     DateEnd = dateBase.AddDays(10).AddHours(10)   // 20/12/2025 à 10h
                 }

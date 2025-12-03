@@ -13,7 +13,7 @@ namespace VehiculeLocation.Backend.Models
         public DateTime DateEnd { get; set; }
 
         // Clé étrangère pour lier à Vehicule
-        public int VehiculeId { get; set; }
+        public int VehicleId { get; set; }
 
         // Propriété de navigation vers le véhicule (Utilisation de [JsonIgnore] si nécessaire)
         [JsonIgnore]

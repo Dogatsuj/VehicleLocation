@@ -15,7 +15,7 @@ namespace VehiculeLocation.Backend.Data
         {
         }
 
-        public DbSet<Vehicle> Vehicules { get; set; } = null!;
+        public DbSet<Vehicle> Vehicles { get; set; } = null!;
         public DbSet<Rental> Locations { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -37,7 +37,7 @@ namespace VehiculeLocation.Backend.Data
             modelBuilder.Entity<Vehicle>()
                 .HasMany(v => v.Rentals) // Un Vehicule a plusieurs Locations
                 .WithOne(l => l.Vehicle)  // Chaque Location appartient à un Vehicule
-                .HasForeignKey(l => l.VehiculeId) // Utilise VehiculeId comme clé étrangère
+                .HasForeignKey(l => l.VehicleId) // Utilise VehiculeId comme clé étrangère
                 .OnDelete(DeleteBehavior.Cascade); // Les locations sont supprimées si le véhicule l'est
 
 

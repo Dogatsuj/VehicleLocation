@@ -22,7 +22,7 @@ public class VehicleController : ControllerBase
     public async Task<ActionResult<IEnumerable<Vehicle>>> GetVehicules()
     {
         // Retourne la liste complète des véhicules de la base de données
-        return await _context.Vehicules.ToListAsync();
+        return await _context.Vehicles.ToListAsync();
     }
 
     /// <summary>
@@ -36,7 +36,7 @@ public class VehicleController : ControllerBase
     [HttpGet("{id}")]
     public async Task<ActionResult<Vehicle>> GetVehicle(int id)
     {
-        var vehicle = await _context.Vehicules.FindAsync(id);
+        var vehicle = await _context.Vehicles.FindAsync(id);
 
         if (vehicle == null)
         {
@@ -55,14 +55,14 @@ public class VehicleController : ControllerBase
     public async Task<ActionResult<IEnumerable<Rental>>> GetLocationsByVehicule(int vehiculeId)
     {
         // 1. Vérifier si le véhicule existe
-        if (!await _context.Vehicules.AnyAsync(v => v.Id == vehiculeId))
+        if (!await _context.Vehicles.AnyAsync(v => v.Id == vehiculeId))
         {
             return NotFound($"Véhicule avec l'ID {vehiculeId} non trouvé.");
         }
 
         // 2. Récupérer toutes les locations liées à cet ID
         var locations = await _context.Locations
-                                      .Where(l => l.VehiculeId == vehiculeId)
+                                      .Where(l => l.VehicleId == vehiculeId)
                                       .ToListAsync();
 
         return locations;
@@ -87,7 +87,7 @@ public class VehicleController : ControllerBase
         }
 
         // 2. Vérifier l'existence du véhicule
-        if (!await _context.Vehicules.AnyAsync(v => v.Id == vehiculeId))
+        if (!await _context.Vehicles.AnyAsync(v => v.Id == vehiculeId))
         {
             return NotFound($"Véhicule avec l'ID {vehiculeId} non trouvé.");
         }
@@ -96,7 +96,7 @@ public class VehicleController : ControllerBase
         // Un chevauchement existe si : (Début_Actuel < Fin_Nouvelle) ET (Fin_Actuelle > Début_Nouvelle)
 
         var isBooked = await _context.Locations
-            .Where(l => l.VehiculeId == vehiculeId)
+            .Where(l => l.VehicleId == vehiculeId)
             .AnyAsync(l => l.DateStart < dateFin && l.DateEnd> dateDebut);
 
         // Si isBooked est VRAI, cela signifie qu'une location existe sur ce créneau.
@@ -129,7 +129,7 @@ public class VehicleController : ControllerBase
         [FromQuery] DateTime? dateFin)
     {
         // Début de la requête
-        var query = _context.Vehicules.AsQueryable();
+        var query = _context.Vehicles.AsQueryable();
 
         // Application des filtres de base
         if (!string.IsNullOrEmpty(brand))
@@ -158,7 +158,7 @@ public class VehicleController : ControllerBase
 
             query = query.Where(v =>
                 !_context.Locations.Any(l =>
-                    l.VehiculeId == v.Id &&
+                    l.VehicleId == v.Id &&
                     l.DateStart < dateFin.Value &&
                     l.DateEnd > dateDebut.Value
                 )
@@ -203,7 +203,7 @@ public class VehicleController : ControllerBase
             return BadRequest("Le prix journalier doit être positif.");
 
         // Ajout du véhicule dans la base de données
-        _context.Vehicules.Add(vehicle);
+        _context.Vehicles.Add(vehicle);
         await _context.SaveChangesAsync();
 
         // Retourne le véhicule créé avec le code HTTP 201
@@ -221,7 +221,7 @@ public class VehicleController : ControllerBase
     public async Task<ActionResult<Rental>> AddRental(int vehiculeId, [FromBody] Rental rental)
     {
         // Vérifier si le véhicule existe
-        var vehicle = await _context.Vehicules.FindAsync(vehiculeId);
+        var vehicle = await _context.Vehicles.FindAsync(vehiculeId);
         if (vehicle == null)
             return NotFound($"Véhicule avec l'ID {vehiculeId} non trouvé.");
 
@@ -231,14 +231,14 @@ public class VehicleController : ControllerBase
 
         // Vérifier la disponibilité
         bool isBooked = await _context.Locations
-            .Where(l => l.VehiculeId == vehiculeId)
+            .Where(l => l.VehicleId == vehiculeId)
             .AnyAsync(l => l.DateStart < rental.DateEnd && l.DateEnd > rental.DateStart);
 
         if (isBooked)
             return BadRequest("Le véhicule n'est pas disponible sur ce créneau.");
 
         // Associer la location au véhicule
-        rental.VehiculeId = vehiculeId;
+        rental.VehicleId = vehiculeId;
 
         // Ajouter la location
         _context.Locations.Add(rental);

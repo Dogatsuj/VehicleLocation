@@ -29,12 +29,12 @@ namespace VehiculeLocation.Backend.Migrations
                     b.Property<DateTime>("DateStart")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("VehiculeId")
+                    b.Property<int>("VehicleId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("VehiculeId");
+                    b.HasIndex("VehicleId");
 
                     b.ToTable("Locations");
 
@@ -44,28 +44,28 @@ namespace VehiculeLocation.Backend.Migrations
                             Id = 1,
                             DateEnd = new DateTime(2025, 12, 13, 18, 0, 0, 0, DateTimeKind.Unspecified),
                             DateStart = new DateTime(2025, 12, 11, 9, 0, 0, 0, DateTimeKind.Unspecified),
-                            VehiculeId = 1
+                            VehicleId = 1
                         },
                         new
                         {
                             Id = 2,
                             DateEnd = new DateTime(2025, 12, 16, 14, 0, 0, 0, DateTimeKind.Unspecified),
                             DateStart = new DateTime(2025, 12, 15, 14, 0, 0, 0, DateTimeKind.Unspecified),
-                            VehiculeId = 2
+                            VehicleId = 2
                         },
                         new
                         {
                             Id = 3,
                             DateEnd = new DateTime(2025, 12, 12, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             DateStart = new DateTime(2025, 12, 12, 8, 0, 0, 0, DateTimeKind.Unspecified),
-                            VehiculeId = 3
+                            VehicleId = 3
                         },
                         new
                         {
                             Id = 4,
                             DateEnd = new DateTime(2025, 12, 20, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             DateStart = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
-                            VehiculeId = 1
+                            VehicleId = 1
                         });
                 });
 
@@ -104,7 +104,7 @@ namespace VehiculeLocation.Backend.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Vehicules");
+                    b.ToTable("Vehicles");
 
                     b.HasData(
                         new
@@ -161,7 +161,7 @@ namespace VehiculeLocation.Backend.Migrations
                 {
                     b.HasOne("VehiculeLocation.Backend.Models.Vehicle", "Vehicle")
                         .WithMany("Rentals")
-                        .HasForeignKey("VehiculeId")
+                        .HasForeignKey("VehicleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
