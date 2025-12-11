@@ -1,12 +1,16 @@
 ﻿// MonProjet.API/Program.cs
 
 using Microsoft.AspNetCore.Builder;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using VehiculeLocation.Backend.Data;
-using Microsoft.EntityFrameworkCore;
+using VehiculeLocation.Backend.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Ajout des Services
+builder.Services.AddScoped<IUserService, UserService>();
 
 // --- Configuration CORS (Crucial pour la communication Front/Back) ---
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
