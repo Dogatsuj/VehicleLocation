@@ -11,7 +11,7 @@ using VehiculeLocation.Backend.Models;
 using VehiculeLocation.Backend.Services;
 
 [ApiController]
-[Route("api/[controller]")] // L'URL de base sera /api/User
+[Route("api/[controller]")]
 public class UserController : ControllerBase
 {
     private readonly AppDbContext _context;
@@ -38,7 +38,6 @@ public class UserController : ControllerBase
     [HttpPost("register")]
     public async Task<ActionResult<User>> Register([FromBody] User user)
     {
-        // Validation basique
         if (user == null)
         {
             return BadRequest("L'utilisateur fourni est nul.");
@@ -56,16 +55,13 @@ public class UserController : ControllerBase
         }
         user.Password = _hasherService.HashPassword(user.Password);
 
-        // on s'assure que isAdmin n'a pas été mis a true
         user.IsAdmin = false;
 
-        // Ajout de l'utilisateur dans la base de données
         _context.User.Add(user);
         await _context.SaveChangesAsync();
 
         var tokenString = GenerateJwtToken(user);
 
-        // Retourne le véhicule créé avec le code HTTP 201
         return StatusCode(StatusCodes.Status201Created, new
         {
             Token = tokenString,
@@ -103,24 +99,21 @@ public class UserController : ControllerBase
 
     private string GenerateJwtToken(User user)
     {
-        // Récupérer les paramètres JWT depuis la configuration
         var config = _configuration.GetSection("Jwt");
         var key = Encoding.ASCII.GetBytes(config["Key"]);
 
-        // 1. Définir les Claims (Payload) : informations sur l'utilisateur à inclure dans le token
         var claims = new List<Claim>
     {
-        // Ceci est l'ID unique utilisé pour identifier l'utilisateur (utile pour l'autorisation)
         new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
         new Claim(ClaimTypes.Name, user.Username),
         new Claim(ClaimTypes.Role, user.IsAdmin ? "Admin" : "User")
     };
 
-        // 2. Créer l'objet Token
+
         var tokenDescriptor = new SecurityTokenDescriptor
         {
             Subject = new ClaimsIdentity(claims),
-            Expires = DateTime.UtcNow.AddHours(1), // Expiration du token (ex: 1 heure)
+            Expires = DateTime.UtcNow.AddHours(1),
             Issuer = config["Issuer"],
             Audience = config["Audience"],
             SigningCredentials = new SigningCredentials(
@@ -140,24 +133,18 @@ public class UserController : ControllerBase
     /// POST: api/User/logout
     /// </summary>
     [HttpPost("logout")]
-    [Authorize] // Optionnel, mais bonne pratique
+    [Authorize]
     public IActionResult Logout()
     {
-        // 1. Déterminer le nom du cookie contenant le JWT (doit être le même que dans Login/Register)
         const string TokenCookieName = "authToken";
 
-        // 2. Vérifier si le cookie existe
         if (!Request.Cookies.ContainsKey(TokenCookieName))
         {
-            // L'utilisateur est déjà déconnecté ou le cookie a expiré
             return Ok(new { Message = "Déconnexion effectuée (aucune session active trouvée)." });
         }
 
-        // 3. Demander au navigateur de SUPPRIMER le cookie
-        // La méthode Append avec une date d'expiration passée ou la méthode Delete le fait.
         Response.Cookies.Delete(TokenCookieName);
 
-        // 4. Réponse au client
         return Ok(new { Message = "Déconnexion réussie." });
     }
 }
