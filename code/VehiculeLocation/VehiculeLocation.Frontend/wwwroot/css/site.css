@@ -23,3 +23,67 @@ body {
     background-image: url("../resources/background.png");
     background-size: cover
 }
+
+.auth-action {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.auth-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0.55rem 0.95rem;
+    border-radius: 14px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    background: rgba(164, 163, 163, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+    transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease, background 0.12s ease;
+}
+
+.auth-link:hover,
+.auth-link:focus {
+    transform: translateY(-0.5px);
+    border-color: rgba(255, 255, 255, 0.32);
+    background: #f64f2aa2
+}
+
+.auth-icon {
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+}
+
+.auth-icon svg {
+    width: 22px;
+    height: 22px;
+    stroke: currentColor;
+}
+
+.auth-text {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 1rem;
+}
+
+.auth-primary {
+    color: #ffffff;
+}
+
+.auth-secondary {
+    color: #ffffff;
+}
+
+.auth-divider {
+    opacity: 0.9;
+    color: coral;
+}
