@@ -11,6 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Ajout des Services
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IPasswordHasherService, PasswordHasherService>();
 
 // --- Configuration CORS (Crucial pour la communication Front/Back) ---
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";

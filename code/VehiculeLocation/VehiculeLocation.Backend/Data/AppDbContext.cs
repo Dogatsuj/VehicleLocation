@@ -33,7 +33,7 @@ namespace VehiculeLocation.Backend.Data
             // seeding location
             modelBuilder.Entity<Rental>().HasData(RentalSeeder.GetLocationSeedData());
             // seeding User
-            // modelBuilder.Entity<User>().HasData(UserSeeder.GetSeederData());
+            modelBuilder.Entity<User>().HasData(UserSeeder.GetUserSeedData());
 
             // Relation des tables
             // Relation one to many de location
