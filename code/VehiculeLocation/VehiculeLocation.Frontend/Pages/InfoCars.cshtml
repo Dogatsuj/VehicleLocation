@@ -1,4 +1,4 @@
-﻿@page "{id:int}" 
+﻿@page "{id:int}"
 @model VehiculeLocation.Frontend.Pages.InfoCarsModel
 @{
     ViewData["Title"] = "Vehicle details";
@@ -11,7 +11,7 @@
     <section class="info-page">
         <div class="info-hero">
             <div class="info-image">
-                <img src="@Model.Vehicle.ImagePath" alt="@($"{Model.Vehicle.Brand} {Model.Vehicle.Model}")" />
+                <img src="@Model.Vehicle.ImagePath" alt="@Model.Vehicle.Brand @Model.Vehicle.Model" />
             </div>
             <div class="info-panel">
                 <div class="panel-top">
@@ -21,22 +21,33 @@
                     <p class="car-highlight">Comfort, connectivity and style for your daily drives.</p>
                 </div>
 
+                @if (TempData["BookingSuccess"] != null)
+                {
+                    <div class="alert alert-success" role="alert">
+                        @TempData["BookingSuccess"]
+                    </div>
+                }
+
+                @if (!ModelState.IsValid)
+                {
+                    <div class="alert alert-danger" role="alert">
+                        <div asp-validation-summary="All"></div>
+                    </div>
+                }
+
                 <form method="post">
-                    <label for="startDate">From</label>
+                    <label for="dateStart">From</label>
                     <div class="input-shell">
-                        <input type="date" id="startDate" name="dateStart" />
+                        <input type="date" id="dateStart" name="dateStart" required />
                     </div>
 
-                    <label for="endDate">To</label>
+                    <label for="dateEnd">To</label>
                     <div class="input-shell">
-                        <input type="date" id="endDate" name="dateEnd" />
+                        <input type="date" id="dateEnd" name="dateEnd" required />
                     </div>
-
-                    <input type="hidden" name="vehicleId" value="@Model.Vehicle.Id" />
 
                     <button type="submit" class="cta-button">Book</button>
                 </form>
-
             </div>
         </div>
 
@@ -51,31 +62,31 @@
         <div class="info-specs">
             <div class="spec-card">
                 <div class="spec-icon fuel">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                         <path d="M12 3c-1.2 2.2-4 6.2-4 8.6a4 4 0 0 0 8 0C16 9.2 13.2 5.2 12 3Z" />
                         <path d="M10.5 11.8c0 .6.5 1.2 1.2 1.2.6 0 1.2-.5 1.2-1.2" />
                     </svg>
                 </div>
                 <div>
                     <p class="spec-label">Powertrain</p>
-                    <p class="spec-value">@(!string.IsNullOrWhiteSpace(Model.Vehicle.Motorisation) ? Model.Vehicle.Motorisation : "Not provided")</p>
+                    <p class="spec-value">@(Model.Vehicle.Motorisation ?? "Not provided")</p>
                 </div>
             </div>
             <div class="spec-card">
                 <div class="spec-icon transmission">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                         <circle cx="12" cy="12" r="4.5" />
                         <path d="M12 3v4m0 10v4m-9-9h4m10 0h4m-3-6-2.5 2.5M7 16.5 4.5 19" />
                     </svg>
                 </div>
                 <div>
                     <p class="spec-label">Transmission</p>
-                    <p class="spec-value">@((Model.Vehicle.IsAutomaticTransmission ? "Automatic" : "Manual"))</p>
+                    <p class="spec-value">@(Model.Vehicle.IsAutomaticTransmission ? "Automatic" : "Manual")</p>
                 </div>
             </div>
             <div class="spec-card">
                 <div class="spec-icon seats">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                         <rect x="6" y="5" width="12" height="7" rx="2" />
                         <path d="M8 12v4a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-4" />
                         <path d="M6 12h12" />
@@ -88,7 +99,7 @@
             </div>
             <div class="spec-card">
                 <div class="spec-icon price">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                         <path d="M7 7h10l-1 4h-8Zm0 0-2 10h12l2-10" />
                         <path d="M13 11.5 12.2 15m-1.2-3.5L10 15" />
                     </svg>
@@ -107,8 +118,10 @@
 }
 else
 {
-    <div class="alert alert-warning" role="alert">
-        Vehicle not found.
-    </div>
+    <div class="alert alert-warning">Vehicle not found.</div>
     <a asp-page="/List" class="btn btn-secondary">Back to list</a>
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
 }

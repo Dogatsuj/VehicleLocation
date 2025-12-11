@@ -14,30 +14,52 @@ namespace VehiculeLocation.Frontend.Pages
 
         public Vehicle? Vehicle { get; set; }
 
-        // Propriétés pour le formulaire de réservation
         [BindProperty]
-        public string? dateStart { get; set; }
+        public string? DateStart { get; set; }
 
         [BindProperty]
-        public string? dateEnd { get; set; }
-
-        [BindProperty]
-        public int vehicleId { get; set; }
+        public string? DateEnd { get; set; }
 
         public InfoCarsModel(IHttpClientFactory httpClientFactory)
         {
             _httpClientFactory = httpClientFactory;
         }
 
-        // Méthode pour appeler l'API de réservation
-        public async Task BookAsync(string dateStart, string dateEnd, int vehicleId)
+        public async Task<IActionResult> OnGetAsync()
         {
             var client = _httpClientFactory.CreateClient("ApiBackend");
+            var response = await client.GetAsync($"api/Vehicle/{Id}");
 
+            if (!response.IsSuccessStatusCode)
+                return NotFound();
+
+            var content = await response.Content.ReadAsStringAsync();
+            Vehicle = JsonSerializer.Deserialize<Vehicle>(content, new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            });
+
+            if (Vehicle == null)
+                return NotFound();
+
+            return Page();
+        }
+
+        public async Task<IActionResult> OnPostAsync()
+        {
+            if (string.IsNullOrEmpty(DateStart) || string.IsNullOrEmpty(DateEnd))
+            {
+                ModelState.AddModelError(string.Empty, "Please select start and end dates.");
+                await OnGetAsync(); 
+                return Page();
+            }
+
+            var client = _httpClientFactory.CreateClient("ApiBackend");
             var body = new
             {
-                dateStart = dateStart,
-                dateEnd = dateEnd
+                vehicleId = Id,
+                dateStart = DateStart,
+                dateEnd = DateEnd
             };
 
             var content = new StringContent(
@@ -46,74 +68,21 @@ namespace VehiculeLocation.Frontend.Pages
                 "application/json"
             );
 
-            var response = await client.PutAsync($"api/Vehicle/{vehicleId}/locations", content);
+            var response = await client.PostAsync($"api/Vehicle/{Id}/locations", content);
 
             if (!response.IsSuccessStatusCode)
             {
-                // Optionnel : log ou gestion d'erreur
-                Console.WriteLine($"Booking failed: {response.StatusCode}");
-            }
-        }
-
-        // Handler pour le formulaire POST
-        public async Task<IActionResult> OnPostAsync()
-        {
-            if (string.IsNullOrEmpty(dateStart) || string.IsNullOrEmpty(dateEnd))
-            {
-                ModelState.AddModelError(string.Empty, "Please select start and end dates.");
+                ModelState.AddModelError(string.Empty, "There is already a reservation for these dates");
+                await OnGetAsync(); 
                 return Page();
             }
 
-            await BookAsync(dateStart, dateEnd, vehicleId);
+            TempData["BookingSuccess"] = "Your reservation has been confirmed!";
 
-            // Redirection après réservation réussie
-            return RedirectToPage("/Confirmation"); // Crée une page Confirmation si besoin
-        }
+            await OnGetAsync();
 
-        // Handler GET pour charger les détails du véhicule
-        public async Task<IActionResult> OnGetAsync()
-        {
-            Console.WriteLine($"InfoCars - Requested ID: {Id}");
-
-            try
-            {
-                var client = _httpClientFactory.CreateClient("ApiBackend");
-
-                Console.WriteLine($"Calling API: api/Vehicle/{Id}");
-                var response = await client.GetAsync($"api/Vehicle/{Id}");
-
-                Console.WriteLine($"API Response Status: {response.StatusCode}");
-
-                if (response.IsSuccessStatusCode)
-                {
-                    var content = await response.Content.ReadAsStringAsync();
-                    Console.WriteLine($"API Content: {content}");
-
-                    var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-                    Vehicle = JsonSerializer.Deserialize<Vehicle>(content, options);
-
-                    if (Vehicle == null)
-                    {
-                        Console.WriteLine("Vehicle is null after deserialization");
-                        return NotFound();
-                    }
-
-                    Console.WriteLine($"Vehicle loaded: {Vehicle.Brand} {Vehicle.Model}");
-                }
-                else if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    Console.WriteLine($"API Call failed: {response.StatusCode}");
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Exception: {ex.Message}");
-                Console.WriteLine($"StackTrace: {ex.StackTrace}");
-            }
+            DateStart = null;
+            DateEnd = null;
 
             return Page();
         }
