@@ -1,0 +1,90 @@
+@page "/Auth"
+@model VehiculeLocation.Frontend.Pages.AuthModel
+@{
+    ViewData["Title"] = "Connexion / Inscription";
+}
+
+<link rel="stylesheet" href="~/css/auth.css" asp-append-version="true" />
+
+@{
+    var activeTab = Model.ActiveTab ?? "login";
+}
+
+<section class="auth-page">
+    <div class="auth-card">
+        <div class="auth-header">
+            <div>
+                <p class="eyebrow">Espace client</p>
+                <h1>Connexion / Inscription</h1>
+                <p class="lede">Gérez vos réservations et vos véhicules en toute simplicité.</p>
+            </div>
+        </div>
+
+        <div class="auth-tabs" role="tablist">
+            <button type="button" class="auth-tab @(activeTab == "login" ? "is-active" : "")" data-tab="login" role="tab" aria-selected="@(activeTab == "login")">Connexion</button>
+            <button type="button" class="auth-tab @(activeTab == "signup" ? "is-active" : "")" data-tab="signup" role="tab" aria-selected="@(activeTab == "signup")">Inscription</button>
+        </div>
+
+        <div class="auth-content">
+            <form method="post" asp-page-handler="Login" class="auth-form @(activeTab == "login" ? "is-active" : "")" data-panel="login" aria-hidden="@(activeTab != "login")" novalidate>
+                <label for="loginName">Nom</label>
+                <input id="loginName" name="LoginName" value="@Model.LoginName" type="text" autocomplete="username" placeholder="Votre nom" />
+
+                <label for="loginPassword">Mot de passe</label>
+                <input id="loginPassword" name="LoginPassword" type="password" autocomplete="current-password" placeholder="Votre mot de passe" />
+
+                <button type="submit" class="auth-submit">Connexion</button>
+            </form>
+
+            <form method="post" asp-page-handler="Signup" class="auth-form @(activeTab == "signup" ? "is-active" : "")" data-panel="signup" aria-hidden="@(activeTab != "signup")" novalidate>
+                <label for="signupName">Nom d'utilisateur</label>
+                <input id="signupName" name="SignupName" value="@Model.SignupName" type="text" autocomplete="username" placeholder="Votre nom d'utilisateur" />
+
+                <label for="signupPassword">Mot de passe</label>
+                <input id="signupPassword" name="SignupPassword" type="password" autocomplete="new-password" placeholder="Votre mot de passe" />
+
+                <label for="signupConfirm">Confirmez le mot de passe</label>
+                <input id="signupConfirm" name="SignupConfirmPassword" type="password" autocomplete="new-password" placeholder="Répétez le mot de passe" />
+
+                @if (!string.IsNullOrWhiteSpace(Model.SignupError))
+                {
+                    <div class="auth-alert error">@Model.SignupError</div>
+                }
+
+                @if (!string.IsNullOrWhiteSpace(Model.SignupMessage))
+                {
+                    <div class="auth-alert success">
+                        <p>@Model.SignupMessage</p>
+                    </div>
+                }
+
+                <button type="submit" class="auth-submit">Valider</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <script>
+        (() => {
+            const tabs = document.querySelectorAll('.auth-tab');
+            const panels = document.querySelectorAll('.auth-form[data-panel]');
+
+            const setActive = (key) => {
+                tabs.forEach(tab => {
+                    const isActive = tab.dataset.tab === key;
+                    tab.classList.toggle('is-active', isActive);
+                    tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
+                });
+
+                panels.forEach(panel => {
+                    const isActive = panel.dataset.panel === key;
+                    panel.classList.toggle('is-active', isActive);
+                    panel.toggleAttribute('aria-hidden', !isActive);
+                });
+            };
+
+            tabs.forEach(tab => tab.addEventListener('click', () => setActive(tab.dataset.tab)));
+        })();
+    </script>
+}

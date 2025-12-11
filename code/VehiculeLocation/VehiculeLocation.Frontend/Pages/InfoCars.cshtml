@@ -18,7 +18,6 @@
                     <span class="eyebrow">@Model.Vehicle.Brand</span>
                     <h1 class="car-title">@Model.Vehicle.Brand @Model.Vehicle.Model</h1>
                     <p class="car-price">@Model.Vehicle.DailyRentalPrice.ToString("0.##") € / day</p>
-                    <p class="car-highlight">Comfort, connectivity and style for your daily drives.</p>
                 </div>
 
                 @if (TempData["BookingSuccess"] != null)
@@ -44,6 +43,7 @@
                     <label for="dateEnd">To</label>
                     <div class="input-shell">
                         <input type="date" id="dateEnd" name="dateEnd" required />
+
                     </div>
 
                     <button type="submit" class="cta-button">Book</button>
