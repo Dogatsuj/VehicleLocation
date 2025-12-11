@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using VehiculeLocation.Backend.Data;
 using VehiculeLocation.Backend.Models;
@@ -182,6 +183,7 @@ public class VehicleController : ControllerBase
     /// <response code="201">Retourne le véhicule créé.</response>
     /// <response code="400">Si les données fournies sont invalides.</response>
     [HttpPost]
+    [Authorize]
     public async Task<ActionResult<Vehicle>> CreateVehicle([FromBody] Vehicle vehicle)
     {
         // Validation basique
@@ -218,6 +220,7 @@ public class VehicleController : ControllerBase
     /// <param name="rental">Détails de la location à ajouter.</param>
     /// <returns>La location créée.</returns>
     [HttpPost("{vehicleId}/locations")]
+    [Authorize]
     public async Task<ActionResult<Rental>> AddRental(int vehicleId, [FromBody] Rental rental)
     {
         // Vérifier si le véhicule existe

@@ -110,3 +110,4 @@ Desktop.ini
 
 # Fichiers de package nuget (s'ils existent dans le dépôt)
 **/packages/*
+*.env
