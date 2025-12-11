@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Net.Http.Json;
+using System.Text.Json;
 
 namespace VehiculeLocation.Frontend.Pages
 {
@@ -34,16 +35,55 @@ namespace VehiculeLocation.Frontend.Pages
 
         public string? SignupError { get; private set; }
 
+        public LogInResponse loginResponse { get; private set; }
+
         public void OnGet()
         {
         }
 
-        public IActionResult OnPostLogin()
+        public async Task<IActionResult> OnPostLoginAsync()
         {
             ActiveTab = "login";
-            //not implemented
+
+            if (!string.IsNullOrWhiteSpace(LoginName) &&
+                !string.IsNullOrWhiteSpace(LoginPassword))
+            {
+                var payload = new
+                {
+                    username = LoginName,
+                    password = LoginPassword
+                };
+
+                var client = _httpClientFactory.CreateClient("ApiBackend");
+
+                var response = await client.PostAsJsonAsync("api/User/login", payload);
+                if (response.IsSuccessStatusCode) { 
+
+                    var content = await response.Content.ReadAsStringAsync();
+                    var logInResponse = JsonSerializer.Deserialize<LogInResponse>(content);
+
+                    if (logInResponse != null)
+                    {
+                        Response.Cookies.Append("AuthToken", logInResponse.token, new CookieOptions
+                        {
+                            HttpOnly = true,
+                            Secure = true,
+                            SameSite = SameSiteMode.Strict,
+                            Expires = DateTimeOffset.UtcNow.AddHours(1)
+                        });
+
+                        return RedirectToPage("/Index");
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError(string.Empty, "incorrect username or password");
+                }
+            }
+
             return Page();
         }
+
 
         public async Task<IActionResult> OnPostSignup()
         {
@@ -90,5 +130,12 @@ namespace VehiculeLocation.Frontend.Pages
 
             return Page();
         }
+    }
+
+    public class LogInResponse
+    {
+        public string token { get; set; }
+        public string username { get; set; }
+        public bool isAdmin { get; set; }
     }
 }

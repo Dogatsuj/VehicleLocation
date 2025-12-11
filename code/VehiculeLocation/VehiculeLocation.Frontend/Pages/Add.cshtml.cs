@@ -62,7 +62,6 @@ namespace VehiculeLocation.Frontend.Pages
                 else
                 {
                     var errorContent = await response.Content.ReadAsStringAsync();
-                    ErrorMessage = $"Error adding vehicle: {response.StatusCode}. {errorContent}";
                     return Page();
                 }
             }

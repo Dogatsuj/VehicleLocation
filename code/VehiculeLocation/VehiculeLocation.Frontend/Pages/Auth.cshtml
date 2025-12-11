@@ -16,7 +16,7 @@
             <div>
                 <p class="eyebrow">Espace client</p>
                 <h1>Connexion / Inscription</h1>
-                <p class="lede">Gérez vos réservations et vos véhicules en toute simplicité.</p>
+                <p class="lede">VehicleLocation</p>
             </div>
         </div>
 
@@ -24,8 +24,14 @@
             <button type="button" class="auth-tab @(activeTab == "login" ? "is-active" : "")" data-tab="login" role="tab" aria-selected="@(activeTab == "login")">Connexion</button>
             <button type="button" class="auth-tab @(activeTab == "signup" ? "is-active" : "")" data-tab="signup" role="tab" aria-selected="@(activeTab == "signup")">Inscription</button>
         </div>
-
+        
         <div class="auth-content">
+            @if (!ModelState.IsValid)
+            {
+                <div class="alert alert-danger" role="alert">
+                    <div asp-validation-summary="All"></div>
+                </div>
+            }
             <form method="post" asp-page-handler="Login" class="auth-form @(activeTab == "login" ? "is-active" : "")" data-panel="login" aria-hidden="@(activeTab != "login")" novalidate>
                 <label for="loginName">Nom</label>
                 <input id="loginName" name="LoginName" value="@Model.LoginName" type="text" autocomplete="username" placeholder="Votre nom" />
