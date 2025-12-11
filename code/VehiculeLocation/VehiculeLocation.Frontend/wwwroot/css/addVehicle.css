@@ -97,14 +97,18 @@ textarea {
     border-radius: 12px;
     background: #ffffff;
     padding: 0.75rem;
+    display: grid;
+    place-items: center;
 }
 
 .preview-card img {
     width: 100%;
+    max-height: 260px;
     border-radius: 10px;
     display: block;
-    object-fit: cover;
+    object-fit: contain;
     aspect-ratio: 16 / 9;
+    background: #f9fafb;
 }
 
 .add-actions {
