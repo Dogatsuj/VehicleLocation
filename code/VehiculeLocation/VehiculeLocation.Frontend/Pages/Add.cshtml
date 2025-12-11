@@ -51,10 +51,15 @@
             </div>
 
             <label for="imageUrl">Image URL</label>
+            <input id="imageUrl" name="imageUrl" type="url" inputmode="url" placeholder="https://example.com/your-car.jpg" value="@Model.Vehicle?.ImagePath" />
 
             <label for="imageUrl">Preview</label>
             <div class="preview-card">
-                <img id="previewImage" src="@Model.Vehicle?.ImagePath" alt="@($"{Model.Vehicle?.Brand} {Model.Vehicle?.Model}")" />
+                <img
+                    id="previewImage"
+                    src="@(string.IsNullOrWhiteSpace(Model.Vehicle?.ImagePath) ? "https://placehold.co/600x338?text=Vehicle+preview" : Model.Vehicle?.ImagePath)"
+                    data-placeholder="https://placehold.co/600x338?text=Vehicle+preview"
+                    alt="@(string.IsNullOrWhiteSpace(Model.Vehicle?.Brand) && string.IsNullOrWhiteSpace(Model.Vehicle?.Model) ? "Vehicle preview" : $"{Model.Vehicle?.Brand} {Model.Vehicle?.Model}")" />
             </div>
         </div>
     </div>
@@ -69,13 +74,21 @@
         (function () {
             const urlInput = document.getElementById('imageUrl');
             const preview = document.getElementById('previewImage');
-            const initial = preview?.getAttribute('src') || '';
+            const placeholder = preview?.dataset?.placeholder || '';
+            const initial = preview?.getAttribute('src') || placeholder;
 
             if (urlInput && preview) {
                 const update = () => {
-                    preview.src = urlInput.value.trim() || initial;
+                    const next = urlInput.value.trim();
+                    preview.src = next || placeholder || initial;
                 };
+
+                if (!preview.getAttribute('src')) {
+                    preview.src = placeholder || initial;
+                }
+
                 urlInput.addEventListener('input', update);
+                urlInput.addEventListener('blur', update);
             }
         })();
     </script>
