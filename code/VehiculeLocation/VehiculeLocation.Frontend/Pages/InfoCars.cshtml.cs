@@ -98,7 +98,7 @@ namespace VehiculeLocation.Frontend.Pages
                 DateStart = null;
                 DateEnd = null;
 
-                return RedirectToPage("/List");
+                return Page();
             }
         }
     }
