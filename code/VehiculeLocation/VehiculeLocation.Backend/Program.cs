@@ -69,10 +69,10 @@ builder.Services.AddAuthentication(options =>
     {
         ValidateIssuerSigningKey = true,
         IssuerSigningKey = new SymmetricSecurityKey(key),
-        ValidateIssuer = true,
-        ValidIssuer = jwtSettings["Issuer"],
-        ValidateAudience = true,
-        ValidAudience = jwtSettings["Audience"],
+        ValidateIssuer = false,
+        //ValidIssuer = jwtSettings["Issuer"],
+        ValidateAudience = false,
+        //ValidAudience = jwtSettings["Audience"],
         ValidateLifetime = true, // Vérifie l'expiration
         ClockSkew = TimeSpan.Zero // Élimine l'écart de temps par défaut de 5 minutes
     };
@@ -80,12 +80,6 @@ builder.Services.AddAuthentication(options =>
 
 
 var app = builder.Build();
-
-// Activer l'authentification (vérifie le token et construit l'identité de l'utilisateur)
-app.UseAuthentication();
-
-// Activer l'autorisation (vérifie si l'utilisateur a les droits pour accéder à la ressource)
-app.UseAuthorization();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -96,9 +90,10 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-// --- Utilisation de la politique CORS ---
 app.UseCors(MyAllowSpecificOrigins);
 
+app.UseRouting();
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
