@@ -14,9 +14,14 @@ namespace VehiculeLocation.Backend.Models
 
         // Clé étrangère pour lier à Vehicule
         public int VehicleId { get; set; }
+        // Personne qui loue la voiture
+        public int UserId { get; set; }
 
         // Propriété de navigation vers le véhicule (Utilisation de [JsonIgnore] si nécessaire)
         [JsonIgnore]
         public Vehicle? Vehicle { get; set; }
+        // Propriété de navigation vers le loueur (Utilisation de [JsonIgnore] si nécessaire)
+        [JsonIgnore]
+        public User? User { get; set; }
     }
 }

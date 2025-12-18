@@ -22,7 +22,8 @@ namespace VehiculeLocation.Backend.Data.Seeding
                     Motorisation = TypeMotorisationEnum.Petrol,
                     IsAutomaticTransmission = false,
                     Description = "Une voiture qui roule",
-                    ImagePath = "https://upload.wikimedia.org/wikipedia/commons/6/6d/Dunkerque-1.jpg"
+                    ImagePath = "https://upload.wikimedia.org/wikipedia/commons/6/6d/Dunkerque-1.jpg",
+                    UserId = 1
                 },
                 new Vehicle
                 {
@@ -34,7 +35,8 @@ namespace VehiculeLocation.Backend.Data.Seeding
                     Motorisation = TypeMotorisationEnum.Diesel,
                     IsAutomaticTransmission = true,
                     Description = "Une voiture qui roule",
-                    ImagePath = "https://upload.wikimedia.org/wikipedia/commons/6/6d/Dunkerque-1.jpg"
+                    ImagePath = "https://upload.wikimedia.org/wikipedia/commons/6/6d/Dunkerque-1.jpg",
+                    UserId = 1
                 },
                 new Vehicle
                 {
@@ -46,7 +48,8 @@ namespace VehiculeLocation.Backend.Data.Seeding
                     Motorisation = TypeMotorisationEnum.Electric,
                     IsAutomaticTransmission = true,
                     Description = "Une voiture qui roule",
-                    ImagePath = "https://upload.wikimedia.org/wikipedia/commons/6/6d/Dunkerque-1.jpg"
+                    ImagePath = "https://upload.wikimedia.org/wikipedia/commons/6/6d/Dunkerque-1.jpg",
+                    UserId = 1
                 },
                 new Vehicle
                 {
@@ -58,7 +61,8 @@ namespace VehiculeLocation.Backend.Data.Seeding
                     Motorisation = TypeMotorisationEnum.Petrol,
                     IsAutomaticTransmission = false,
                     Description = "Une voiture qui roule",
-                    ImagePath = "https://upload.wikimedia.org/wikipedia/commons/6/6d/Dunkerque-1.jpg"
+                    ImagePath = "https://upload.wikimedia.org/wikipedia/commons/6/6d/Dunkerque-1.jpg",
+                    UserId = 1
                 }
             };
         }

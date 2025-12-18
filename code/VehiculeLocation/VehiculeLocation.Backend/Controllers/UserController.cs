@@ -29,7 +29,7 @@ public class UserController : ControllerBase
 
     /// <summary>
     /// Ajoute un nouvel utilisateur.
-    /// POST: api/User/Register
+    /// POST: api/User/register
     /// </summary>
     /// <param name="user">Le véhicule à ajouter.</param>
     /// <returns>Le véhicule créé avec son ID.</returns>

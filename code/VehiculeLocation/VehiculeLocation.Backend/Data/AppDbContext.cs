@@ -28,12 +28,12 @@ namespace VehiculeLocation.Backend.Data
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
             // Application du Seeding
+            // seeding User
+            modelBuilder.Entity<User>().HasData(UserSeeder.GetUserSeedData());
             // seeding Vehicle
             modelBuilder.Entity<Vehicle>().HasData(VehicleSeeder.GetVehiculeSeedData());
             // seeding location
             modelBuilder.Entity<Rental>().HasData(RentalSeeder.GetLocationSeedData());
-            // seeding User
-            modelBuilder.Entity<User>().HasData(UserSeeder.GetUserSeedData());
 
             // Relation des tables
             // Relation one to many de location
@@ -41,7 +41,14 @@ namespace VehiculeLocation.Backend.Data
                 .HasMany(v => v.Rentals) // Un Vehicule a plusieurs Locations
                 .WithOne(l => l.Vehicle)  // Chaque Location appartient à un Vehicule
                 .HasForeignKey(l => l.VehicleId) // Utilise VehiculeId comme clé étrangère
-                .OnDelete(DeleteBehavior.Cascade); // Les locations sont supprimées si le véhicule l'est
+                .OnDelete(DeleteBehavior.Restrict); // Les locations sont supprimées si le véhicule l'est
+
+            // Relation Loueur : Un utilisateur effectue plusieurs locations
+            modelBuilder.Entity<Rental>()
+                .HasOne(r => r.User)
+                .WithMany(u => u.MyRentals)
+                .HasForeignKey(r => r.UserId)
+                .OnDelete(DeleteBehavior.Cascade); // Si le user disparait, ses locations aussi
         }
     }
 }

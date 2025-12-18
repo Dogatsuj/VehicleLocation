@@ -29,10 +29,15 @@ namespace VehiculeLocation.Backend.Migrations
                     b.Property<DateTime>("DateStart")
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<int>("VehicleId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.HasIndex("VehicleId");
 
@@ -44,6 +49,7 @@ namespace VehiculeLocation.Backend.Migrations
                             Id = 1,
                             DateEnd = new DateTime(2025, 12, 13, 18, 0, 0, 0, DateTimeKind.Unspecified),
                             DateStart = new DateTime(2025, 12, 11, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = 2,
                             VehicleId = 1
                         },
                         new
@@ -51,6 +57,7 @@ namespace VehiculeLocation.Backend.Migrations
                             Id = 2,
                             DateEnd = new DateTime(2025, 12, 16, 14, 0, 0, 0, DateTimeKind.Unspecified),
                             DateStart = new DateTime(2025, 12, 15, 14, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = 2,
                             VehicleId = 2
                         },
                         new
@@ -58,6 +65,7 @@ namespace VehiculeLocation.Backend.Migrations
                             Id = 3,
                             DateEnd = new DateTime(2025, 12, 12, 12, 0, 0, 0, DateTimeKind.Unspecified),
                             DateStart = new DateTime(2025, 12, 12, 8, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = 2,
                             VehicleId = 3
                         },
                         new
@@ -65,6 +73,7 @@ namespace VehiculeLocation.Backend.Migrations
                             Id = 4,
                             DateEnd = new DateTime(2025, 12, 20, 10, 0, 0, 0, DateTimeKind.Unspecified),
                             DateStart = new DateTime(2025, 12, 18, 10, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = 2,
                             VehicleId = 1
                         });
                 });
@@ -142,7 +151,12 @@ namespace VehiculeLocation.Backend.Migrations
                     b.Property<int>("Seats")
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Vehicles");
 
@@ -157,7 +171,8 @@ namespace VehiculeLocation.Backend.Migrations
                             IsAutomaticTransmission = false,
                             Model = "Clio V",
                             Motorisation = "Petrol",
-                            Seats = 5
+                            Seats = 5,
+                            UserId = 1
                         },
                         new
                         {
@@ -169,7 +184,8 @@ namespace VehiculeLocation.Backend.Migrations
                             IsAutomaticTransmission = true,
                             Model = "3008",
                             Motorisation = "Diesel",
-                            Seats = 5
+                            Seats = 5,
+                            UserId = 1
                         },
                         new
                         {
@@ -181,7 +197,8 @@ namespace VehiculeLocation.Backend.Migrations
                             IsAutomaticTransmission = true,
                             Model = "Twingo",
                             Motorisation = "Electric",
-                            Seats = 5
+                            Seats = 5,
+                            UserId = 1
                         },
                         new
                         {
@@ -193,19 +210,46 @@ namespace VehiculeLocation.Backend.Migrations
                             IsAutomaticTransmission = false,
                             Model = "C3",
                             Motorisation = "Petrol",
-                            Seats = 5
+                            Seats = 5,
+                            UserId = 1
                         });
                 });
 
             modelBuilder.Entity("VehiculeLocation.Backend.Models.Rental", b =>
                 {
-                    b.HasOne("VehiculeLocation.Backend.Models.Vehicle", "Vehicle")
-                        .WithMany("Rentals")
-                        .HasForeignKey("VehicleId")
+                    b.HasOne("VehiculeLocation.Backend.Models.User", "User")
+                        .WithMany("MyRentals")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("VehiculeLocation.Backend.Models.Vehicle", "Vehicle")
+                        .WithMany("Rentals")
+                        .HasForeignKey("VehicleId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("User");
+
                     b.Navigation("Vehicle");
+                });
+
+            modelBuilder.Entity("VehiculeLocation.Backend.Models.Vehicle", b =>
+                {
+                    b.HasOne("VehiculeLocation.Backend.Models.User", "User")
+                        .WithMany("OwnedVehicles")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("VehiculeLocation.Backend.Models.User", b =>
+                {
+                    b.Navigation("MyRentals");
+
+                    b.Navigation("OwnedVehicles");
                 });
 
             modelBuilder.Entity("VehiculeLocation.Backend.Models.Vehicle", b =>

@@ -19,7 +19,19 @@ namespace VehiculeLocation.Backend.Configuration
             builder.HasKey(v => v.Id);
             builder.Property(v => v.Password).IsRequired();
             builder.Property(v => v.Username).IsRequired();
-            builder.Property(v => v.IsAdmin).HasDefaultValue(false);            
+            builder.Property(v => v.IsAdmin).HasDefaultValue(false);
+
+            // Un User peut avoir plusieurs Véhicules (Propriétaire)
+            builder.HasMany(u => u.OwnedVehicles)
+                   .WithOne(v => v.User)
+                   .HasForeignKey(v => v.UserId)
+                   .OnDelete(DeleteBehavior.Restrict); // On ne supprime pas l'utilisateur si ses voitures existent
+
+            // Un User peut avoir plusieurs Locations (Loueur)
+            builder.HasMany(u => u.MyRentals)
+                   .WithOne(r => r.User)
+                   .HasForeignKey(r => r.UserId)
+                   .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }
