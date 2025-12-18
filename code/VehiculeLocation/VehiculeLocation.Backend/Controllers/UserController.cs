@@ -129,6 +129,51 @@ public class UserController : ControllerBase
     }
 
     /// <summary>
+    /// Récupère toutes les réservations effectuées par l'utilisateur connecté.
+    /// GET: api/User/locations
+    /// </summary>
+    [HttpGet("locations")]
+    [Authorize]
+    public async Task<ActionResult<IEnumerable<Rental>>> GetMyLocations()
+    {
+        // 1. Récupérer l'ID de l'utilisateur à partir du token
+        var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        if (string.IsNullOrEmpty(userIdClaim)) return Unauthorized("Utilisateur non identifié.");
+
+        int userId = int.Parse(userIdClaim);
+
+        // 2. Chercher les locations liées à cet utilisateur
+        // On inclut souvent .Include(l => l.Vehicle) si tu veux afficher les détails du véhicule loué
+        var locations = await _context.Locations
+            .Where(l => l.UserId == userId)
+            .ToListAsync();
+
+        return Ok(locations);
+    }
+
+    /// <summary>
+    /// Récupère tous les véhicules mis en location par l'utilisateur connecté (propriétaire).
+    /// GET: api/User/vehicles
+    /// </summary>
+    [HttpGet("vehicles")]
+    [Authorize]
+    public async Task<ActionResult<IEnumerable<Vehicle>>> GetMyVehicles()
+    {
+        // 1. Récupérer l'ID de l'utilisateur à partir du token
+        var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        if (string.IsNullOrEmpty(userIdClaim)) return Unauthorized("Utilisateur non identifié.");
+
+        int userId = int.Parse(userIdClaim);
+
+        // 2. Chercher les véhicules dont l'utilisateur est le propriétaire
+        var vehicles = await _context.Vehicles
+            .Where(v => v.UserId == userId)
+            .ToListAsync();
+
+        return Ok(vehicles);
+    }
+
+    /// <summary>
     /// Déconnecte l'utilisateur en supprimant le token JWT (cookie).
     /// POST: api/User/logout
     /// </summary>
