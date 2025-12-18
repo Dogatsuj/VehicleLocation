@@ -34,6 +34,13 @@
                 <input id="loginPassword" name="LoginPassword" type="password" autocomplete="current-password" placeholder="Votre mot de passe" />
 
                 <button type="submit" class="auth-submit">Connexion</button>
+
+                @if (!string.IsNullOrWhiteSpace(Model.LoginMessage))
+                {
+                    <div class="auth-alert success">
+                        <p>@Model.LoginMessage</p>
+                    </div>
+                }
             </form>
 
             <form method="post" asp-page-handler="Signup" class="auth-form @(activeTab == "signup" ? "is-active" : "")" data-panel="signup" aria-hidden="@(activeTab != "signup")" novalidate>

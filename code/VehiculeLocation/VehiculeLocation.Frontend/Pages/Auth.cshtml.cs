@@ -40,6 +40,8 @@ namespace VehiculeLocation.Frontend.Pages
 
         public string ActiveTab { get; private set; } = "login";
 
+        public string? LoginMessage { get; private set; }
+
         public string? SignupMessage { get; private set; }
 
         public string? SignupError { get; private set; }
@@ -48,11 +50,61 @@ namespace VehiculeLocation.Frontend.Pages
         {
         }
 
-        public IActionResult OnPostLogin()
+        public async Task<IActionResult> OnPostLoginAsync()
         {
             ActiveTab = "login";
-            //not implemented
-            return Page();
+
+            if (string.IsNullOrWhiteSpace(LoginName) ||
+                string.IsNullOrWhiteSpace(LoginPassword))
+            {
+                SignupError = "Merci de remplir tous les champs.";
+                return Page();
+            }
+
+
+            var client = _httpClientFactory.CreateClient("ApiBackend");
+            var payload = new
+            {
+                username = LoginName,
+                password = LoginPassword
+            };
+            Console.WriteLine("Request Body: " + payload);
+
+            var response = await client.PostAsJsonAsync("api/User/login", payload);
+
+            var responseContent = await response.Content.ReadAsStringAsync();
+            Console.WriteLine("Response Status Code: " + response.StatusCode);
+            Console.WriteLine("Response Content: " + responseContent);
+
+            if (response.IsSuccessStatusCode)
+                {
+                    var json = await response.Content.ReadAsStringAsync();
+
+                    var authResponse = JsonSerializer.Deserialize<AuthResponse>(
+                        json,
+                        new JsonSerializerOptions { PropertyNameCaseInsensitive = true }
+                    );
+
+                    CookieOptions options = new CookieOptions
+                    {
+                        Expires = DateTimeOffset.Now.AddHours(1),
+                        SameSite = SameSiteMode.Strict
+                    };
+
+                    // Add cookie
+                    Response.Cookies.Append("token", authResponse.Token, options);
+                    Response.Cookies.Append("username", authResponse.Username, options);
+
+                    return RedirectToPage("/Index");
+
+
+            }
+            else
+                {
+                    var details = await response.Content.ReadAsStringAsync();
+                    SignupError = details;
+                }
+                return Page();
         }
 
         public async Task<IActionResult> OnPostSignup()
@@ -109,7 +161,7 @@ namespace VehiculeLocation.Frontend.Pages
                 else
                 {
                     var details = await response.Content.ReadAsStringAsync();
-                    SignupError = $"Erreur API {(int)response.StatusCode}: {details}";
+                    SignupError = details;
                 }
             }
             catch (Exception ex)
