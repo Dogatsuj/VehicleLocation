@@ -11,5 +11,13 @@ namespace VehiculeLocation.Backend.Models
         public string Username { get; set; }
         public string Password { get; set; }
         public bool IsAdmin { get; set; }
+
+        // Les véhicules possédés par cet utilisateur
+        [JsonIgnore]
+        public List<Vehicle> OwnedVehicles { get; set; } = new List<Vehicle>();
+
+        // Les locations effectuées par cet utilisateur
+        [JsonIgnore]
+        public List<Rental> MyRentals { get; set; } = new List<Rental>();
     }
 }

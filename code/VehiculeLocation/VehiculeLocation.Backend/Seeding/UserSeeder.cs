@@ -23,7 +23,7 @@ namespace VehiculeLocation.Backend.Data.Seeding
                     Id = 1,
                     Username = "admin",
                     Password = "$2a$12$.SP2dh9GQr/nVpFqTd.XGudDM/FkyBE8gKoXQmmTmE08tejW6SOb6",
-                    IsAdmin = true
+                    IsAdmin = true,
                 },
                 
                 // User 2 : Regular User
@@ -31,7 +31,7 @@ namespace VehiculeLocation.Backend.Data.Seeding
                 {
                     Id = 2,
                     Username = "Grigory Ivanovich Kulik",
-                    Password = "$2a$12$ztnvLsPVjDZ7dDq2y.K4seU6x47uk/CinTHGN.OaY3rwrSGpVqEDC"
+                    Password = "$2a$12$ztnvLsPVjDZ7dDq2y.K4seU6x47uk/CinTHGN.OaY3rwrSGpVqEDC",
                 }
             };
         }

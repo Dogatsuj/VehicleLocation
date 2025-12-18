@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 using VehiculeLocation.Backend.Data;
 using VehiculeLocation.Backend.Models;
 
@@ -204,11 +205,15 @@ public class VehicleController : ControllerBase
         if (vehicle.DailyRentalPrice < 0)
             return BadRequest("Le prix journalier doit être positif.");
 
-        // Ajout du véhicule dans la base de données
+        var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value; // On récupère l'id présentes dans le token
+        if (string.IsNullOrEmpty(userIdClaim))
+            return Unauthorized();
+
+        vehicle.UserId = int.Parse(userIdClaim);
+
         _context.Vehicles.Add(vehicle);
         await _context.SaveChangesAsync();
 
-        // Retourne le véhicule créé avec le code HTTP 201
         return CreatedAtAction(nameof(GetVehicle), new { id = vehicle.Id }, vehicle);
     }
 
@@ -243,11 +248,15 @@ public class VehicleController : ControllerBase
         // Associer la location au véhicule
         rental.VehicleId = vehicleId;
 
-        // Ajouter la location
+        var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value; // On récupère le token dans l'id
+        if (string.IsNullOrEmpty(userIdClaim)) return Unauthorized();
+
+        rental.UserId = int.Parse(userIdClaim);
+        rental.VehicleId = vehicleId;
+
         _context.Locations.Add(rental);
         await _context.SaveChangesAsync();
 
-        // Retourner la location créée avec code HTTP 201
         return CreatedAtAction(nameof(GetLocationsByVehicle), new { vehicleId = vehicleId }, rental);
     }
 
