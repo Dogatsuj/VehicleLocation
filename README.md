@@ -69,6 +69,11 @@ dotnet ef migrations remove
 $env:PATH += ";$env:USERPROFILE\.dotnet\tools"
 ```
 
+if authentification fail try to add this package to the backend part
+```bash
+dotnet add package Microsoft.IdentityModel.JsonWebTokens
+```
+
 # Link to Postman
 Postman is a free tool use to try the APIs <br/>
 https://starsaphir656-2890104.postman.co/workspace/star-saphir's-Workspace~1d2bc8cf-a625-4450-8397-c1462ea434a5/collection/50549926-178b2818-3519-4def-a935-db0c6920e483?action=share&creator=50549926
