@@ -51,6 +51,7 @@ namespace VehiculeLocation.Frontend.Pages
             try
             {
                 var httpClient = _httpClientFactory.CreateClient("ApiBackend");
+                httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
 
                 // Serialize with camelCase naming policy to match API expectations
                 var options = new JsonSerializerOptions
