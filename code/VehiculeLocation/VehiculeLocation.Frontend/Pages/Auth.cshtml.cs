@@ -137,7 +137,6 @@ namespace VehiculeLocation.Frontend.Pages
                 var response = await client.PostAsJsonAsync("api/User/register", payload);
                 if (response.IsSuccessStatusCode)
                 {
-                    SignupMessage = "Inscription réussie";
 
                     var json = await response.Content.ReadAsStringAsync();
 
@@ -156,6 +155,7 @@ namespace VehiculeLocation.Frontend.Pages
                     Response.Cookies.Append("token", authResponse.Token, options);
                     Response.Cookies.Append("username", authResponse.Username, options);
 
+                    return RedirectToPage("/Index");
 
                 }
                 else

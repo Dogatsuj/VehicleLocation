@@ -27,22 +27,39 @@
                         </li>
                     </ul>
 
+                    @{
+                        var hasToken = Context.Request.Cookies.ContainsKey("token");
+                        var username = hasToken ? Context.Request.Cookies["username"] : null;
+                    }
+
                     <div class="auth-action ms-sm-3">
-                        <!-- Link to the auth page while staying within the shared layout -->
-                        <a asp-area="" asp-page="/Auth" class="auth-link">
-                            <span class="auth-icon" aria-hidden="true">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                    <circle cx="12" cy="8" r="4" />
-                                    <path d="M4.5 20a7.5 7.5 0 0 1 15 0" />
-                                </svg>
-                            </span>
-                            <span class="auth-text">
-                                <span class="auth-primary">Connexion</span>
-                                <span class="auth-divider" aria-hidden="true">|</span>
-                                <span class="auth-secondary">Inscription</span>
-                            </span>
-                        </a>
+                        @if (!hasToken)
+                        {
+                            <!-- Link to the auth page while staying within the shared layout -->
+                            <a asp-area="" asp-page="/Auth" class="auth-link">
+                                <span class="auth-icon" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                        <circle cx="12" cy="8" r="4" />
+                                        <path d="M4.5 20a7.5 7.5 0 0 1 15 0" />
+                                    </svg>
+                                </span>
+                                <span class="auth-text">
+                                    <span class="auth-primary">Connexion</span>
+                                    <span class="auth-divider" aria-hidden="true">|</span>
+                                    <span class="auth-secondary">Inscription</span>
+                                </span>
+                            </a>
+                        }
+                        else
+                        {
+                            <!-- Display username and logout button -->
+                            <span class="text-white me-2">@username</span>
+                            <form method="post" asp-page="/Logout" class="d-inline">
+                                <button type="submit" class="btn btn-outline-light">Logout</button>
+                            </form>
+                        }
                     </div>
+
                 </div>
             </div>
         </nav>
