@@ -48,9 +48,5 @@ app.UseAuthorization();
 // Mappage pour les Pages Razor / Active les routes automatiques
 app.MapRazorPages();
 
-// Si vous utilisez l'architecture MVC (Contrôleurs et Vues):
-// app.MapControllerRoute(
-//     name: "default",
-//     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();

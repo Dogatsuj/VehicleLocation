@@ -1,9 +1,19 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Net.Http.Json;
+using System.Text.Json;
 
 namespace VehiculeLocation.Frontend.Pages
 {
+
+    public class AuthResponse
+    {
+        public required string Token { get; set; }
+        public required string Username { get; set; }
+        public bool IsAdmin { get; set; }
+    }
+
+
     public class AuthModel : PageModel
     {
         private readonly IHttpClientFactory _httpClientFactory;
@@ -66,16 +76,35 @@ namespace VehiculeLocation.Frontend.Pages
             var client = _httpClientFactory.CreateClient("ApiBackend");
             var payload = new
             {
-                Username = SignupName,
-                Password = SignupPassword
+                username = SignupName,
+                password = SignupPassword   
             };
 
             try
             {
-                var response = await client.PostAsJsonAsync("api/User", payload);
+                var response = await client.PostAsJsonAsync("api/User/register", payload);
                 if (response.IsSuccessStatusCode)
                 {
-                    SignupMessage = "Inscription envoyée à l'API (mot de passe en clair pour l'instant).";
+                    SignupMessage = "Inscription réussie";
+
+                    var json = await response.Content.ReadAsStringAsync();
+
+                    var authResponse = JsonSerializer.Deserialize<AuthResponse>(
+                        json,
+                        new JsonSerializerOptions { PropertyNameCaseInsensitive = true }
+                    );
+
+                    CookieOptions options = new CookieOptions
+                    {
+                        Expires = DateTimeOffset.Now.AddHours(1), 
+                        SameSite = SameSiteMode.Strict
+                    };
+
+                    // Add cookie
+                    Response.Cookies.Append("token", authResponse.Token, options);
+                    Response.Cookies.Append("username", authResponse.Username, options);
+
+
                 }
                 else
                 {

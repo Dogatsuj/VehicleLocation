@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Text.Json;
 using VehiculeLocation.Frontend.Models;
@@ -47,44 +48,55 @@ namespace VehiculeLocation.Frontend.Pages
 
         public async Task<IActionResult> OnPostAsync()
         {
-            if (string.IsNullOrEmpty(DateStart) || string.IsNullOrEmpty(DateEnd))
+            string token = Request.Cookies["token"];
+            if (token == null)
             {
-                ModelState.AddModelError(string.Empty, "Please select start and end dates.");
-                await OnGetAsync(); 
+                ModelState.AddModelError(string.Empty, "Please log in to rent a vehicle");
                 return Page();
             }
-
-            var client = _httpClientFactory.CreateClient("ApiBackend");
-            var body = new
             {
-                vehicleId = Id,
-                dateStart = DateStart,
-                dateEnd = DateEnd
-            };
+                if (string.IsNullOrEmpty(DateStart) || string.IsNullOrEmpty(DateEnd))
+                {
+                    ModelState.AddModelError(string.Empty, "Please select start and end dates.");
+                    await OnGetAsync();
+                    return Page();
+                }
 
-            var content = new StringContent(
-                JsonSerializer.Serialize(body),
-                System.Text.Encoding.UTF8,
-                "application/json"
-            );
+                var client = _httpClientFactory.CreateClient("ApiBackend");
+                client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+                var body = new
+                {
+                    vehicleId = Id,
+                    dateStart = DateStart,
+                    dateEnd = DateEnd
+                };
 
-            var response = await client.PostAsync($"api/Vehicle/{Id}/locations", content);
+                var jsonBody = JsonSerializer.Serialize(body);
 
-            if (!response.IsSuccessStatusCode)
-            {
-                ModelState.AddModelError(string.Empty, "There is already a reservation for these dates");
-                await OnGetAsync(); 
+
+                var content = new StringContent(
+                    JsonSerializer.Serialize(body),
+                    System.Text.Encoding.UTF8,
+                    "application/json"
+                );
+
+                var response = await client.PostAsync($"api/Vehicle/{Id}/locations", content);
+                if (!response.IsSuccessStatusCode)
+                {
+                    ModelState.AddModelError(string.Empty, "There is already a reservation for these dates");
+                    await OnGetAsync();
+                    return Page();
+                }
+
+                TempData["BookingSuccess"] = "Your reservation has been confirmed!";
+
+                await OnGetAsync();
+
+                DateStart = null;
+                DateEnd = null;
+
                 return Page();
             }
-
-            TempData["BookingSuccess"] = "Your reservation has been confirmed!";
-
-            await OnGetAsync();
-
-            DateStart = null;
-            DateEnd = null;
-
-            return Page();
         }
     }
 }
