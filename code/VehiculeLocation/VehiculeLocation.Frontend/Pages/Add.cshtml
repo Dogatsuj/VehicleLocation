@@ -6,6 +6,12 @@
 <link rel="stylesheet" href="~/css/addVehicle.css" asp-append-version="true" />
 <section class="add-page">
     <h1 class="add-title">Add a rentable vehicle</h1>
+    @if (!string.IsNullOrWhiteSpace(Model.ErrorMessage))
+                {
+                    <div style="color: red;">
+                        <p>@Model.ErrorMessage</p>
+                    </div>
+                }
     <form method="post" class="add-form">
         <div class="add-grid">
             <div class="add-column">

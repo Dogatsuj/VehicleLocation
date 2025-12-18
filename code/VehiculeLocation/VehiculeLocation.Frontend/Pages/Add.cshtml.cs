@@ -1,6 +1,8 @@
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
+using System.Numerics;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -34,6 +36,13 @@ namespace VehiculeLocation.Frontend.Pages
 
         public async Task<IActionResult> OnPostAsync()
         {
+            string token = Request.Cookies["token"];
+            if (token == null)
+            {
+                ErrorMessage = "Please log in to add a vehicle";
+                return Page();
+            }
+
             if (!ModelState.IsValid)
             {
                 return Page();
