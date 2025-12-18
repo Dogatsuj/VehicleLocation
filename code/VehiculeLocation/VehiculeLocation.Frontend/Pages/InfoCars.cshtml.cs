@@ -52,6 +52,7 @@ namespace VehiculeLocation.Frontend.Pages
             if (token == null)
             {
                 ModelState.AddModelError(string.Empty, "Please log in to rent a vehicle");
+                await OnGetAsync();
                 return Page();
             }
             {
@@ -81,6 +82,8 @@ namespace VehiculeLocation.Frontend.Pages
                 );
 
                 var response = await client.PostAsync($"api/Vehicle/{Id}/locations", content);
+                Console.WriteLine("Response Status Code: " + response.StatusCode);
+                Console.WriteLine("Response Content: " + response.Content);
                 if (!response.IsSuccessStatusCode)
                 {
                     ModelState.AddModelError(string.Empty, "There is already a reservation for these dates");
@@ -95,7 +98,7 @@ namespace VehiculeLocation.Frontend.Pages
                 DateStart = null;
                 DateEnd = null;
 
-                return Page();
+                return RedirectToPage("/List");
             }
         }
     }
