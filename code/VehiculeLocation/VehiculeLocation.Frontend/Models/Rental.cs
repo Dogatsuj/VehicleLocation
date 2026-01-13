@@ -18,7 +18,7 @@ namespace VehiculeLocation.Frontend.Models
         public string VehicleModel { get; set; } = string.Empty;
 
 
-        public string VehicleName => $"{VehicleBrand} {VehicleModel}";
+        public string VehicleName { get; set; } = string.Empty;
 
         public string? VehicleImagePath { get; set; }
         public float DailyRentalPrice { get; set; }

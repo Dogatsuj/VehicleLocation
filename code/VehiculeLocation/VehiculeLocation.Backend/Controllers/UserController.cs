@@ -162,7 +162,7 @@ public class UserController : ControllerBase
 
                 // On peut même calculer le prix total ici si tu veux
                 // (Nombre de jours * Prix journalier)
-                TotalPrice = l.Vehicle.DailyRentalPrice * (l.DateEnd - l.DateStart).Days
+                TotalPrice = l.Vehicle.DailyRentalPrice * ((l.DateEnd - l.DateStart).Days == 0 ? 1 : (l.DateEnd - l.DateStart).Days)
             })
             .ToListAsync();
 
