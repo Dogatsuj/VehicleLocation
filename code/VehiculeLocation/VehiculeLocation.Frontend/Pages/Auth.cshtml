@@ -1,7 +1,7 @@
 @page "/Auth"
 @model VehiculeLocation.Frontend.Pages.AuthModel
 @{
-    ViewData["Title"] = "Connexion / Inscription";
+    ViewData["Title"] = "Login / Sign Up";
 }
 
 <link rel="stylesheet" href="~/css/auth.css" asp-append-version="true" />
@@ -14,26 +14,26 @@
     <div class="auth-card">
         <div class="auth-header">
             <div>
-                <p class="eyebrow">Espace client</p>
-                <h1>Connexion / Inscription</h1>
-                <p class="lede">Gérez vos réservations et vos véhicules en toute simplicité.</p>
+                <p class="eyebrow">Customer Area</p>
+                <h1>Login / Sign Up</h1>
+                <p class="lede">Manage your bookings and your vehicles with ease.</p>
             </div>
         </div>
 
         <div class="auth-tabs" role="tablist">
-            <button type="button" class="auth-tab @(activeTab == "login" ? "is-active" : "")" data-tab="login" role="tab" aria-selected="@(activeTab == "login")">Connexion</button>
-            <button type="button" class="auth-tab @(activeTab == "signup" ? "is-active" : "")" data-tab="signup" role="tab" aria-selected="@(activeTab == "signup")">Inscription</button>
+            <button type="button" class="auth-tab @(activeTab == "login" ? "is-active" : "")" data-tab="login" role="tab" aria-selected="@(activeTab == "login")">Login</button>
+            <button type="button" class="auth-tab @(activeTab == "signup" ? "is-active" : "")" data-tab="signup" role="tab" aria-selected="@(activeTab == "signup")">Sign Up</button>
         </div>
 
         <div class="auth-content">
             <form method="post" asp-page-handler="Login" class="auth-form @(activeTab == "login" ? "is-active" : "")" data-panel="login" aria-hidden="@(activeTab != "login")" novalidate>
-                <label for="loginName">Nom</label>
-                <input id="loginName" name="LoginName" value="@Model.LoginName" type="text" autocomplete="username" placeholder="Votre nom" />
+                <label for="loginName">Name</label>
+                <input id="loginName" name="LoginName" value="@Model.LoginName" type="text" autocomplete="username" placeholder="Your name" />
 
-                <label for="loginPassword">Mot de passe</label>
-                <input id="loginPassword" name="LoginPassword" type="password" autocomplete="current-password" placeholder="Votre mot de passe" />
+                <label for="loginPassword">Password</label>
+                <input id="loginPassword" name="LoginPassword" type="password" autocomplete="current-password" placeholder="Your password" />
 
-                <button type="submit" class="auth-submit">Connexion</button>
+                <button type="submit" class="auth-submit">Login</button>
 
                 @if (!string.IsNullOrWhiteSpace(Model.LoginMessage))
                 {
@@ -44,14 +44,14 @@
             </form>
 
             <form method="post" asp-page-handler="Signup" class="auth-form @(activeTab == "signup" ? "is-active" : "")" data-panel="signup" aria-hidden="@(activeTab != "signup")" novalidate>
-                <label for="signupName">Nom d'utilisateur</label>
-                <input id="signupName" name="SignupName" value="@Model.SignupName" type="text" autocomplete="username" placeholder="Votre nom d'utilisateur" />
+                <label for="signupName">Username</label>
+                <input id="signupName" name="SignupName" value="@Model.SignupName" type="text" autocomplete="username" placeholder="Your username" />
 
-                <label for="signupPassword">Mot de passe</label>
-                <input id="signupPassword" name="SignupPassword" type="password" autocomplete="new-password" placeholder="Votre mot de passe" />
+                <label for="signupPassword">Password</label>
+                <input id="signupPassword" name="SignupPassword" type="password" autocomplete="new-password" placeholder="Your password" />
 
-                <label for="signupConfirm">Confirmez le mot de passe</label>
-                <input id="signupConfirm" name="SignupConfirmPassword" type="password" autocomplete="new-password" placeholder="Répétez le mot de passe" />
+                <label for="signupConfirm">Confirm password</label>
+                <input id="signupConfirm" name="SignupConfirmPassword" type="password" autocomplete="new-password" placeholder="Repeat your password" />
 
                 @if (!string.IsNullOrWhiteSpace(Model.SignupError))
                 {
@@ -65,7 +65,7 @@
                     </div>
                 }
 
-                <button type="submit" class="auth-submit">Valider</button>
+                <button type="submit" class="auth-submit">Sign Up</button>
             </form>
         </div>
     </div>
