@@ -7,6 +7,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using VehiculeLocation.Backend.Data;
+using VehiculeLocation.Backend.DTOs;
 using VehiculeLocation.Backend.Models;
 using VehiculeLocation.Backend.Services;
 
@@ -134,15 +135,35 @@ public class UserController : ControllerBase
     /// </summary>
     [HttpGet("locations")]
     [Authorize]
-    public async Task<ActionResult<IEnumerable<Rental>>> GetMyLocations()
+    // On change le type de retour pour utiliser le DTO
+    public async Task<ActionResult<IEnumerable<RentalWithVehicleDto>>> GetMyLocations()
     {
         var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
         if (string.IsNullOrEmpty(userIdClaim)) return Unauthorized("Utilisateur non identifié.");
 
         int userId = int.Parse(userIdClaim);
 
+        // On utilise .Select() pour transformer l'entité Rental en RentalWithVehicleDto
         var locations = await _context.Locations
             .Where(l => l.UserId == userId)
+            .Include(l => l.Vehicle) // Important : on charge les données du véhicule
+            .Select(l => new RentalWithVehicleDto
+            {
+                Id = l.Id,
+                DateStart = l.DateStart,
+                DateEnd = l.DateEnd,
+
+                // Mapping des données du véhicule
+                VehicleId = l.VehicleId,
+                VehicleBrand = l.Vehicle.Brand ?? "Inconnu",
+                VehicleModel = l.Vehicle.Model ?? "Inconnu",
+                VehicleImagePath = l.Vehicle.ImagePath,
+                DailyRentalPrice = l.Vehicle.DailyRentalPrice,
+
+                // On peut même calculer le prix total ici si tu veux
+                // (Nombre de jours * Prix journalier)
+                TotalPrice = l.Vehicle.DailyRentalPrice * (l.DateEnd - l.DateStart).Days
+            })
             .ToListAsync();
 
         return Ok(locations);
