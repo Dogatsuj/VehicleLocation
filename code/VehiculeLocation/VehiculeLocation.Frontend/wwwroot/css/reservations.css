@@ -1,0 +1,31 @@
+.main-container {
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.list-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.rent-card {
+    width: 30%;
+    margin-inline: 15px;
+    margin-bottom: 15px;
+    min-height: 300px;
+    max-height: 400px;
+    border: 1px solid #DDDDDD;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.card-body {
+    height: 55%;
+}
+
+.card-img-top{
+    max-height: 150px;
+}

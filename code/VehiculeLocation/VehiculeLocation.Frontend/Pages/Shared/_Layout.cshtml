@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/VehiculeLocation.Frontend.styles.css" asp-append-version="true" />
 </head>
+@{
+    var hasToken = Context.Request.Cookies.ContainsKey("token");
+    var username = hasToken ? Context.Request.Cookies["username"] : null;
+}
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light mb-3 app-navbar">
@@ -25,12 +29,18 @@
                         <li class="nav-item">
                             <a class="nav-link text-white" asp-area="" asp-page="/Add">Add a vehicle</a>
                         </li>
+                        @if (hasToken)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-white" asp-area="" asp-page="/Reservations">My reservations</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-white" asp-area="" asp-page="/MyVehicles">My vehicles</a>
+                            </li>
+                        }
                     </ul>
 
-                    @{
-                        var hasToken = Context.Request.Cookies.ContainsKey("token");
-                        var username = hasToken ? Context.Request.Cookies["username"] : null;
-                    }
 
                     <div class="auth-action ms-sm-3">
                         @if (!hasToken)
